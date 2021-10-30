@@ -18,5 +18,16 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         }
 
 
+        public IActionResult Invitado()
+        {
+            return View();
+        }
+
+        public IActionResult Registrado()
+        {
+            return View();
+        }
+
+
     }
 }
