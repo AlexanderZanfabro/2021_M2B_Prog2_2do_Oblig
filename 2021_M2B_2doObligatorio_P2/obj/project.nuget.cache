@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "i3BMUo54/H5YFk2/Et2nq29AuU1rc0yMNZ/E6VSU72XfaMLlXoHDslY1+5Il3TjBx/SnBDtgpcthHatyZewT1w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
+  ],
+  "logs": []
+}
