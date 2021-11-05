@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2021_M2B_2doObligatorio_P2", "2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2.csproj", "{C0550671-35A5-446D-BA04-A2640E79A28A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2021_M2B_2doObligatorio_P2", "2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2.csproj", "{C0550671-35A5-446D-BA04-A2640E79A28A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "ClassLibrary\Dominio.csproj", "{A88B2853-31C7-481D-994A-01771B281EC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C0550671-35A5-446D-BA04-A2640E79A28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0550671-35A5-446D-BA04-A2640E79A28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0550671-35A5-446D-BA04-A2640E79A28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88B2853-31C7-481D-994A-01771B281EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88B2853-31C7-481D-994A-01771B281EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88B2853-31C7-481D-994A-01771B281EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88B2853-31C7-481D-994A-01771B281EC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

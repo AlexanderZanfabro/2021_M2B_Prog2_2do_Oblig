@@ -1,0 +1,9 @@
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\bin\Debug\netcoreapp3.1\Dominio.deps.json
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.pdb

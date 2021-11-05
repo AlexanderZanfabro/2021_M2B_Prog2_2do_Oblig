@@ -1,4 +1,4 @@
-﻿using _2021_M2B_2doObligatorio_P2.Models;
+﻿//using _2021_M2B_2doObligatorio_P2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,9 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
     public class UsuarioController : Controller
     {
 
-        Sistema s = Sistema.GetInstancia();
+        Dominio.Sistema s = Dominio.Sistema.GetInstancia();
+
+       
         public IActionResult Index()
         {
             ViewBag.Usuarios = "Juana"+ " " + "Miguel"; // prueba
@@ -28,6 +30,10 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             return View();
         }
 
+        public IActionResult Operador()
+        {
 
+            return View();
+        }
     }
 }

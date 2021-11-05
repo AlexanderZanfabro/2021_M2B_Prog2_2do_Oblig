@@ -5,4 +5,8 @@
     <RootNamespace>_2021_M2B_2doObligatorio_P2</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\Dominio.csproj" />
+  </ItemGroup>
+
 </Project>

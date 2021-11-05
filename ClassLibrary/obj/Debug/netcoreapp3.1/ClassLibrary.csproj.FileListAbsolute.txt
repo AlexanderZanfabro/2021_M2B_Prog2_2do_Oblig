@@ -1,0 +1,4 @@
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\ClassLibrary.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\ClassLibrary.csproj.CoreCompileInputs.cache
