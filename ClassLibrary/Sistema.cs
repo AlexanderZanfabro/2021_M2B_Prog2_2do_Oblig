@@ -53,8 +53,8 @@ namespace Dominio
 
 
         /////////////////////////////////////////////////////////////////////////////////// Constructor
-
-        public Sistema()
+        // el contructor pasa de public a private al implementar el patron Singleton.
+        private Sistema()
         {
             PrecargaDatos();
         }
@@ -259,11 +259,11 @@ namespace Dominio
 
         // Como manejar el Rol y el estado Activo ?
 
-        public Usuario AltaUsuario(string nombre, string apellido, string email, DateTime fechaNacimiento, string nombreUsuario, string contrasenia, string rol, bool activo)
+        public Usuario AltaUsuario(string nombre, string apellido, string email, DateTime fechaNacimiento, string nombreUsuario, string contrasenia)
         {
             Usuario nuevo = null;
 
-            if (nombre != "" && apellido != "" && email != "" && fechaNacimiento < DateTime.Now && nombreUsuario != "" && contrasenia != "")
+            if (nombre != null && apellido != null && email != null && fechaNacimiento < DateTime.Now && nombreUsuario != null && contrasenia != null)
             {
 
                 bool aux = false;
@@ -280,7 +280,7 @@ namespace Dominio
                 if (!aux)
                 {
 
-                    nuevo = new Usuario(nombre, apellido, email, fechaNacimiento, nombreUsuario, contrasenia, rol, activo);
+                    nuevo = new Usuario(nombre, apellido, email, fechaNacimiento, nombreUsuario, contrasenia);
                     usuarios.Add(nuevo);
 
                 }
@@ -454,17 +454,21 @@ namespace Dominio
               return precioFinal;
           }*/
 
+        //------------------------------------------------------------------------------------------------------------
 
 
-        #endregion
+       
 
 
-        ////////////////////////////////////////////////////////////////////////////////////////////// Precarga de Datos
+    #endregion
 
 
-        #region Precarga de Datos
+    ////////////////////////////////////////////////////////////////////////////////////////////// Precarga de Datos
 
-        public void PrecargaDatos()
+
+    #region Precarga de Datos
+
+    public void PrecargaDatos()
         {
 
             Lugar l1 = AltaLugarCerrado("Antel Arena", 0.2, true, 100000);      // Cerrado
@@ -490,8 +494,18 @@ namespace Dominio
             Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), 4, Actividad.EdadMinimaPermitida.P, c1, 5000);
             Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), 2, Actividad.EdadMinimaPermitida.C18, c4, 5000);
 
+            Usuario u1 = AltaUsuario("John", "Smith", "john@montevideo.com.uy", DateTime.Parse("1981-01-10"), "john01", "1234@Aaa");
+            Usuario u2 = AltaUsuario("Aida", "Aqua", "aAqua@montevideo.com.uy", DateTime.Parse("1978-05-20"), "aida01", "4321@Aaa");
+            Usuario u3 = AltaUsuario("Mika", "Verona", "verona@montevide.com.uy", DateTime.Parse("2001-01-05"), "mika01", "111#Agua");
+            Usuario u4 = AltaUsuario("Augusto", "Re", "augusRe@montevideo.com.uy", DateTime.Parse("1955-02-12"), "augusto01", "22@@Zz22");
+            Usuario u5 = AltaUsuario("Anton", "Vivaldi", "vivaldi@montevideo.com.uy", DateTime.Parse("1999-08-11"), "anton01", "4444@JJj");
 
-
+            u1.CambioRol("Operador");
+            u2.CambioRol("Operador");
+            u3.CambioRol("Registrado");
+            u4.CambioRol("Registrado");
+            u5.CambioRol("Invitado");
+            
 
 
         }
