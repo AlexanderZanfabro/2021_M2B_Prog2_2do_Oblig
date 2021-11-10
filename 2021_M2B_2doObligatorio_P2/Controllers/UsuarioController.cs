@@ -40,10 +40,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
 
 
-        public IActionResult ListaParaVer()
-        {
-            return View();
-        }
+      
 
         public IActionResult Create()
         {
