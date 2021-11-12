@@ -14,8 +14,8 @@ namespace Dominio
         public DateTime FechaNacimiento { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
-        public string Rol = "Invitado";
-        public bool Activo = true;
+        public string Rol { get; set; }
+        public bool Activo { get; set; }
 
         // definir como se cambia el Rol y como lo inicio.  Esta bien usar el null en este caso?
 
@@ -30,7 +30,8 @@ namespace Dominio
             FechaNacimiento = fechaNacimiento;
             NombreUsuario = nombreUsuario;
             Contrasenia = contrasenia;
-           
+            Rol = "Registrado";
+            Activo = true;
         }
 
         public override string ToString()
@@ -40,28 +41,7 @@ namespace Dominio
 
 
 
-        public string GetRol()
-        {
-            return Rol;
-        }
-
-
-        public bool CambioRol(string rol)
-        {
-            bool retorno = false;
-            if (rol == "Operador")
-            {
-                Rol = "Operador";
-                retorno = true;
-            }else if(rol == "Registrado")
-            {
-                Rol = "Registrado";
-                retorno = true;
-            }
-           
-
-            return retorno;
-        }
+      
 
        
     }

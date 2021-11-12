@@ -27,37 +27,35 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         }
 
 
-       
-      
-
-        public IActionResult Operador()
+       public IActionResult Login()
         {
-            List<Usuario> usu = s.GetUsuarios();
-            ViewBag.MostrarTodosUsuarios = usu;
+            return View();
+        }
 
+
+        public IActionResult Logout()
+        {
             return View();
         }
 
 
 
-      
 
-        public IActionResult Create()
+        public IActionResult Registro()
         {
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(string nombre, string apellido, string email, DateTime fechaNacimiento, string nombreUsuario, string contrasenia)
+        public IActionResult Registro(string nombre, string apellido, string email, DateTime fechaNacimiento, string nombreUsuario, string contrasenia)
         {
             Usuario u = s.AltaUsuario(nombre, apellido, email, fechaNacimiento, nombreUsuario, contrasenia);
 
 
              if(u != null)
             {
-                u.Rol = "Registrado";
-
+               
                 ViewBag.Msg = "Alta correcta";
             }
             else
