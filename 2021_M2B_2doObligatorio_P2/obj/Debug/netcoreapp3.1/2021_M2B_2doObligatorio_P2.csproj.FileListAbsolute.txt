@@ -36,7 +36,6 @@ C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\2021_M2B_2doObligatorio_P2.pdb
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\2021_M2B_2doObligatorio_P2.genruntimeconfig.cache
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\2021_M2B_2doObligatorio_P2.csproj.CopyComplete
-C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Operador.cshtml.g.cs
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\Dominio.dll
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\Dominio.pdb
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
@@ -112,4 +111,6 @@ C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Create.cshtml.g.cs
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Login.cshtml.g.cs
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Logout.cshtml.g.cs
+C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Registro.cshtml.g.cs

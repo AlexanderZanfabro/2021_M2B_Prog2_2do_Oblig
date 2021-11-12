@@ -9,20 +9,7 @@
 
             }
 <p>-----------------------------------------------------------------------------------------</p>
-@*si el usuario esta registrado puede comprar entradas*@
-@*si el usuario no esta registrado (es invitado) no puede comprar entradas*@
 
-@foreach(var usuario in ViewBag.ListaGeneralUsuarios)
-            {
-               @if(usuario.Rol == "Registrado" ){
-<form method="post">
+  
 
-    <h3>Comprar entradas</h3><br><br>
-    <lavel>Nombre actividad</lavel>
-    <input type="text" name="NombreActividad"><br>
-    <lavel>Cantidad de entradas</lavel>
-    <input type="number" name="CantidadEntradas"><br>
-    <input type="submit" value="Comprar">
-</form>
-                }
-            }
+                
