@@ -82,7 +82,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
         public IActionResult Registro()
         {
-
+            
             return View();
         }
 
@@ -100,8 +100,8 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             else
             {
                 ViewBag.Msg = "Error en el Alta de usuario";
-            } 
-
+            }
+            
             return View();
         }
 

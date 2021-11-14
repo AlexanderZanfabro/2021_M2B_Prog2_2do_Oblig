@@ -1,5 +1,6 @@
-﻿using System;
+﻿                    using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static Dominio.Actividad;
 
@@ -256,25 +257,35 @@ namespace Dominio
         //--------------------------------------------------------------------------------------------------------------------------
 
         // Como manejar el Rol y el estado Activo ?
-
+        /// <summary>
+        /// El AltaUsuario tiene métodos de verificación y ademas hay un filtro de javascript en la vista de Registro
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="email"></param>
+        /// <param name="fechaNacimiento"></param>
+        /// <param name="nombreUsuario"></param>
+        /// <param name="contrasenia"></param>
+        /// <returns></returns>
         public Usuario AltaUsuario(string nombre, string apellido, string email, DateTime fechaNacimiento, string nombreUsuario, string contrasenia)
         {
             Usuario nuevo = null;
 
-            if (nombre != null && apellido != null && email != null && fechaNacimiento < DateTime.Now && nombreUsuario != null && contrasenia != null)
+            if (nombre != null && apellido != null && email != null && fechaNacimiento < DateTime.Now && nombreUsuario != null && contrasenia != null && CheckEmail(email) && CheckContrasenia( contrasenia))
             {
+
+              
 
                 bool aux = false;
 
                 foreach (Usuario u in usuarios)
                 {
-                    if (u.Nombre == nombre && u.Apellido == apellido && u.Email == email && u.FechaNacimiento == fechaNacimiento)
+                    if (u.Email == email && u.NombreUsuario == nombreUsuario)
                     {
                         aux = true;
 
                     }
                 }
-
                 if (!aux)
                 {
 
@@ -288,6 +299,8 @@ namespace Dominio
             return nuevo;
         }
 
+       
+
 
         #endregion
 
@@ -299,8 +312,9 @@ namespace Dominio
         #region Métodos
 
 
-        //----------------------------------------------Cambiar aforo máximo permitido----------------------------------------------------------------------------
+        //----------------------------------------------Cambiar aforo máximo permitido---------------------------------------------
 
+        #region cambiarAforoMaxPermitido
 
         public int CambiarAforoMaximoPermitido(int a)
         {
@@ -321,11 +335,11 @@ namespace Dominio
 
         // Deberia haber un enum con % de aforos listados (25, 30, 50, 70, 85, 100) y pedir que los seleccionen de ahí --> ( Por ahora no aplica).
 
+        #endregion
 
+        //-------------------------------------------------Lista espectáculos áptos para todo público------------------------------
 
-
-        //-------------------------------------------------Lista espectáculos áptos para todo público-------------------------------------------------------------------------
-
+        #region List espectaculos áptos para todo público
         public List<Actividad> GetEspectaculosAptosTodoPublico()
         {
             List<Actividad> retorno = new List<Actividad>();
@@ -345,11 +359,12 @@ namespace Dominio
         }
 
 
+        #endregion
 
+        //-------------------------------------------------Cambiar precio de butacas-----------------------------------------------
 
+        #region cambiarPrecioButaca
 
-
-        //-------------------------------------------------Cambiar precio de butacas-------------------------------------------------------------------------
         public double CambiarPrecioDeCadaButaca(double precioNuevoButaca)
         {
             // double nuevoPrecio = 0;
@@ -367,12 +382,11 @@ namespace Dominio
         }
 
 
+        #endregion
 
+        //-----------------------------------------------Actividades entre 2 fechas------------------------------------------------
 
-
-
-        //-----------------------------------------------Actividades entre 2 fechas---------------------------------------------------------------------------
-
+        #region Actividad entre dos fechas
         public List<Actividad> GetActividadesInRango(int selectedCategoryId, DateTime dateBusqueda1, DateTime dateBusqueda2)
         {
             List<Actividad> found = new List<Actividad>();
@@ -399,10 +413,11 @@ namespace Dominio
             return found;
         }
 
+        #endregion
 
+        //-------------------------------------------------------------------------------------------------------------------------
 
-        //--------------------------------------------------------------------------------------------------------------------------
-
+        #region métodosDeCalculosEnDesuso
         /* public int CambiarPrecioAforo(int aforo)
          {
              double elPrecio = 0;
@@ -452,6 +467,9 @@ namespace Dominio
               return precioFinal;
           }*/
 
+        #endregion
+
+        //-------------------------------------------------------------------------------------------------------------------------
         public double CalcularPrecioFinal(int cantidadEntradas, string nombreLugar)
         {
             Lugar lugar = null;
@@ -500,15 +518,120 @@ namespace Dominio
        }
 
 
-    #endregion
+
+        //---------------------------------- Verificaciones del Registro ---------------------------------------------
+
+        #region verificacion de Email
+        private bool CheckEmail(string email)
+        {
+            bool correcto = false;
+
+            bool existeArroba = false;
+            foreach (char i in email)
+            {
+                if (i.ToString() == "@")
+                {
+                    // existe un @ en el texto "email"
+                    existeArroba = true;
+                    break;
+                }
+
+            }
+
+            bool unArrobaEnTexto = false;
+            if(email.IndexOf("@") == email.LastIndexOf("@")){
+
+                // solo hay un @ en el texto "email"
+                unArrobaEnTexto = true;
+            }
+
+            bool primerLetr = false;
+            string emailExaminado = email;
+            char primerLetra = emailExaminado.FirstOrDefault();
+            char arr = '@' ;
+            if(primerLetra != arr){
+                // "@" no esta al principio del texto email
+                primerLetr = true;
+            }
+
+          /*  int largoDeEmail = emailExaminado.Length;
+            bool aux4 = false; 
+            char lastCharacter = emailExaminado[largoDeEmail];
+            if(lastCharacter != arr)
+            {
+                // último caracter del texto email no es @
+                aux4 = true;
+            }*/
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////// Precarga de Datos
+            if(existeArroba && unArrobaEnTexto && primerLetr)
+            {
+                correcto = true;
+            }
 
 
-    #region Precarga de Datos
+            return correcto;
+        }
 
-    public void PrecargaDatos()
+        #endregion
+        //-------------------
+
+        #region verificacion de contrasenia
+
+         public bool CheckContrasenia(string contrasenia) { 
+            bool esCorrecto = false;
+
+            bool largoCorrecto = false;
+           if( contrasenia.Length >= 6) {  largoCorrecto = true; }
+
+
+            bool tieneUnNum = false;
+            bool TieneMayuscula = false;
+            bool tieneMinuscula = false;
+
+            string str = contrasenia;
+            byte[] valoresAscii = Encoding.ASCII.GetBytes(str);
+            foreach(var v in valoresAscii)
+            {
+                if(v > 47 && v < 58)
+                {
+                    // tiene al menos un número
+                    tieneUnNum = true;
+                }
+                if(v > 64 && v < 91)
+                {
+                    // tiene al menos una mayúscula
+                    TieneMayuscula = true;
+                }
+                if (v > 96 && v < 123)
+                {
+                    // tiene al menos una minúscula
+                    tieneMinuscula = true;
+                }
+            }
+
+            if(largoCorrecto && tieneUnNum && TieneMayuscula && tieneMinuscula)
+            {
+                esCorrecto = true;
+            }
+
+
+            return esCorrecto;
+        }
+
+        #endregion
+
+        //-------------------
+
+        #endregion
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////// Precarga de Datos
+
+
+        #region Precarga de Datos
+
+        public void PrecargaDatos()
         {
 
             Lugar l1 = AltaLugarCerrado("Antel Arena", 0.2, true, 100000);      // Cerrado
