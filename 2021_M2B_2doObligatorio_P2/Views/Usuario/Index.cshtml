@@ -1,13 +1,28 @@
-﻿<h1>BIENVENIDOS AL PORTAL DEL USUARIO</h1>
+﻿@model IEnumerable<Dominio.Actividad>
+
+<h1>BIENVENIDOS AL PORTAL DEL USUARIO</h1>
 
 <h3>Lista de Actividades</h3>
+<table>
+   <thead>
+      <tr>
+         <th>Nombre Actividad</th>
+         <th>Categoria</th>
+         <th>Accion</th>
+      </tr>
+   </thead>
+   <tbody>
+   @foreach (var item in Model)
+   {
+      <tr>
+         <td>@Html.DisplayNameFor(model => item.NombreActividad)</td>
+         <td>@Html.DisplayNameFor(model => item.Categoria.Nombre)</td>
+         <td>@Html.ActionLink("Comprar entrada", "Entrada", new {id=item.Id})</td>
+      </tr>
+   }
+   </tbody>
+</table>
 
-@foreach(var actividad in ViewBag.ListActividades)
-            {
-
-               <p>@actividad.NombreActividad - @actividad.Categoria.Nombre</p>
-
-            }
 <p>-----------------------------------------------------------------------------------------</p>
 
   

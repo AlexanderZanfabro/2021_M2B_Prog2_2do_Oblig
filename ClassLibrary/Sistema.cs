@@ -32,8 +32,6 @@ namespace Dominio
         /////////////////////////////////////////////////////////////////////////////////// Variables del Sistema
 
 
-
-
         /////////////////////////////////////////////////////////////////////////////////// Listas
 
         #region Listas
@@ -454,10 +452,52 @@ namespace Dominio
               return precioFinal;
           }*/
 
-        //------------------------------------------------------------------------------------------------------------
+        public double CalcularPrecioFinal(int cantidadEntradas, string nombreLugar)
+        {
+            Lugar lugar = null;
+            foreach(Lugar l in lugares)
+            {
+                if(l.Nombre == nombreLugar)
+                {
+                    lugar = l;
+                    break;
+                }
+            }
+
+            if(lugar == null)
+                return -1.0;
+
+            double valorRetorno = Actividad.PrecioBaseActividad;
+            if(lugar is LugarAbierto)
+            {
+                if(lugar.Dimensiones > 1000)
+                    valorRetorno = valorRetorno * 1.10;
+            }
+            else
+            {
+                if(LugarCerrado.GetAforoMaximoPermitido() < 50)
+                    valorRetorno = valorRetorno * 1.30;
+                else if(LugarCerrado.GetAforoMaximoPermitido() > 50 && LugarCerrado.GetAforoMaximoPermitido() < 70){
+                    valorRetorno = valorRetorno * 1.15;
+                }
+            }
+
+            return valorRetorno;
+        }
+
+        //---------------------------------------LOGIN----------------------------------------------------------------
 
 
-       
+       public Usuario LoginUsuario(string username, string password){
+           foreach(Usuario u in usuarios)
+           {
+               if(u.NombreUsuario == username && u.Contrasenia == password)
+               {
+                   return u;
+               }
+           }
+           return null;
+       }
 
 
     #endregion

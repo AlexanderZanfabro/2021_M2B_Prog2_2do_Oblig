@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace _2021_M2B_2doObligatorio_P2.Controllers
 {
@@ -16,19 +17,50 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
        
         public IActionResult Index()
         {
-            List<Actividad> activ = s.GetActividades();
-            ViewBag.ListActividades = activ;
-
-            List<Usuario> usu = s.GetUsuarios();
-            ViewBag.ListaGeneralUsuarios = usu;
-
-            
-            return View();
+            return View(s.GetActividades());
         }
 
 
        public IActionResult Login()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string nombreUsuario, string contrasenia)
+        {
+            if(nombreUsuario == null || contrasenia == null)
+            {
+                ViewBag.Resultado = "Un campo introducido es invalido";
+                return View();
+            }
+            
+            if(nombreUsuario == "" || contrasenia == "")
+            {
+                ViewBag.Resultado = "Un campo introducido es invalido";
+                return View();
+            }
+
+            if(HttpContext.Session.GetString("usuarioLogueadoUsername") != null)
+            {
+                ViewBag.Resultado = "Error";
+                return View();
+            }
+
+            
+            Usuario u = s.LoginUsuario(nombreUsuario, contrasenia);
+
+            if(u != null)
+            {
+                ViewBag.Resultado = "Logueado con exito!";
+                HttpContext.Session.SetString("usuarioLogUsername", u.NombreUsuario);
+                HttpContext.Session.SetString("usuarioLogRol", u.Rol);
+                HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
+                HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewBag.Resultado = "No se encontro un usuario con esas credenciales";
             return View();
         }
 
@@ -38,6 +70,13 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Logout(string s)
+        {
+
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Usuario");
+        }
 
 
 
@@ -71,6 +110,13 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
             return
                 View();
+        }
+
+
+        public IActionResult prueba()
+        {
+
+            return View(s.GetActividades());
         }
     }
 }

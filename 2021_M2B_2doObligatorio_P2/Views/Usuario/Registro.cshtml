@@ -1,6 +1,6 @@
 ﻿<h1>Registro de nuevo usuario</h1>
 
-<form method="post">
+<form method="post" id="registroUsuario">
     <label>Nombre</label>
     <input type="text" name="nombre" id="nombre">
     <br>
@@ -21,7 +21,42 @@
     <input type="text" name="contrasenia" id="contrasenia">
     <br>
 
-    <input type="submit" value="Regisrarse">
+    <input type="submit" value="Registrarse">
 </form>
 
-@ViewBag.Msg
+<p id="pMensaje">@ViewBag.Msg</p>
+
+@{ 
+    <script>
+        document.querySelector("#registroUsuario").addEventListener("submit", controlForm);
+
+        function controlForm(evento) {
+            evento.preventDefault();
+            let nombre = document.querySelector("#nombre").value;
+            let apellido = document.querySelector("#apellido").value;
+            let contrasenia = document.querySelector("#contrasenia").value;
+            let email = document.querySelector("#email").value;
+            let fechaNacimiento = document.querySelector("#fechaNacimiento").value;
+            let nombreUsuario = document.querySelector("#nombreUsuario").value;
+
+
+
+            if (nombre != "" && apellido != "" && email != "" && fechaNacimiento != "" && nombreUsuario != "" && contrasenia != "") {
+                if (nombre.length >= 2 && apellido.length >= 2 && contrasenia.length >= 6) {
+
+                    this.submit();
+                } else {
+                    document.querySelector("#pMensaje").innerHTML = "Error. Es requerido un largo mínimo en el ingreso de datos ";
+                }
+
+
+            } else {
+                document.querySelector("#pMensaje").innerHTML = "Error. Falta ingresar de datos ";
+            }
+
+        }
+
+
+
+    </script>
+}
