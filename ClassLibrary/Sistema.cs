@@ -503,7 +503,7 @@ namespace Dominio
             return valorRetorno;
         }
 
-        //---------------------------------------LOGIN----------------------------------------------------------------
+        //---------------------------------------LOGIN----------------------------------------------------------------------------
 
 
        public Usuario LoginUsuario(string username, string password){
@@ -519,7 +519,7 @@ namespace Dominio
 
 
 
-        //---------------------------------- Verificaciones del Registro ---------------------------------------------
+        //---------------------------------- Verificaciones del Registro ----------------------------------------------------------
 
         #region verificacion de Email
         private bool CheckEmail(string email)
@@ -554,17 +554,21 @@ namespace Dominio
                 primerLetr = true;
             }
 
-          /*  int largoDeEmail = emailExaminado.Length;
-            bool aux4 = false; 
-            char lastCharacter = emailExaminado[largoDeEmail];
-            if(lastCharacter != arr)
+            /*  int largoDeEmail = emailExaminado.Length;
+              bool aux4 = false; 
+              char lastCharacter = emailExaminado[largoDeEmail];
+              if(lastCharacter != arr)
+              {
+                  // último caracter del texto email no es @
+                  aux4 = true;
+              }*/
+            bool finConArroba = false;
+           if(email.EndsWith('@') != true)
             {
-                // último caracter del texto email no es @
-                aux4 = true;
-            }*/
+                finConArroba = true;
+            }
 
-
-            if(existeArroba && unArrobaEnTexto && primerLetr)
+            if(existeArroba && unArrobaEnTexto && primerLetr && finConArroba)
             {
                 correcto = true;
             }
@@ -621,7 +625,32 @@ namespace Dominio
 
         #endregion
 
-        //-------------------
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        #region Actividades Actuales
+
+        public List<Actividad> GetActividadesActuales()
+        {
+            List<Actividad> actuales = new List<Actividad>();
+
+            foreach (var ac in actividades)
+            { if(ac.FechaYhoraActividad > DateTime.Now)
+                {
+                    actuales.Add(ac);
+                }
+
+            }
+
+
+            return actuales;
+        }
+
+
+
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------------------------------
 
         #endregion
 
@@ -647,11 +676,11 @@ namespace Dominio
 
             Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), 1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
             Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), 3, Actividad.EdadMinimaPermitida.C13, c3, 200);
-            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-20"), 5, Actividad.EdadMinimaPermitida.P, c4, 9000);
-            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2021-08-20"), 1, Actividad.EdadMinimaPermitida.C16, c2, 5000);
-            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2021-08-20"), 1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), 5, Actividad.EdadMinimaPermitida.P, c4, 9000);
+            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), 1, Actividad.EdadMinimaPermitida.C16, c2, 5000);
+            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), 1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
 
-            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-08-10"), 2, Actividad.EdadMinimaPermitida.C18, c4, 20000);
+            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), 2, Actividad.EdadMinimaPermitida.C18, c4, 20000);
             Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), 2, Actividad.EdadMinimaPermitida.C13, c2, 1000);
             Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), 4, Actividad.EdadMinimaPermitida.P, c1, 9500);
             Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), 4, Actividad.EdadMinimaPermitida.P, c1, 5000);

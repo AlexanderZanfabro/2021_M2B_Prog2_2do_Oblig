@@ -17,7 +17,15 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
        
         public IActionResult Index()
         {
-            return View(s.GetActividades());
+            List<Actividad> listaActividades = s.GetActividadesActuales();
+            ViewBag.ListadoAct = listaActividades;
+
+            foreach(var a in listaActividades)
+            {
+               
+            }
+          
+            return View();
         }
 
 
@@ -75,7 +83,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         {
 
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Usuario");
+            return RedirectToAction("Index", "Home");
         }
 
 

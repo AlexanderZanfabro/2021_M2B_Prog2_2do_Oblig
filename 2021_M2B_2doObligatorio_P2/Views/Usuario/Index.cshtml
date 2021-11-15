@@ -1,30 +1,39 @@
-﻿@model IEnumerable<Dominio.Actividad>
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Dominio.Actividad>
 
-<h1>BIENVENIDOS AL PORTAL DEL USUARIO</h1>
+<h1>Bienvenidos al portal del usuario</h1>
 
 <h3>Lista de Actividades</h3>
 <table>
-   <thead>
-      <tr>
-         <th>Nombre Actividad</th>
-         <th>Categoria</th>
-         <th>Accion</th>
-      </tr>
-   </thead>
-   <tbody>
-   @foreach (var item in Model)
-   {
-      <tr>
-         <td>@Html.DisplayNameFor(model => item.NombreActividad)</td>
-         <td>@Html.DisplayNameFor(model => item.Categoria.Nombre)</td>
-         <td>@Html.ActionLink("Comprar entrada", "Entrada", new {id=item.Id})</td>
-      </tr>
-   }
-   </tbody>
+    <thead>
+        <tr>
+            <th>Nombre Actividad</th>
+            <th>Categoria</th>
+            <th>Fecha y hora del Evento</th>
+            <th>Precio de las entradas</th>
+            <th></th><!--Se necesita, pero no es necesario poner nada-->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ListadoAct)
+        {
+            <tr>
+                <td>@item.NombreActividad</td>
+                <td>@item.Categoria.Nombre</td>
+                <td>@item.FechaYhoraActividad</td>
+                <td></td><!--acá iria un precio del evento sin contar cantidad de entradas-->
+                <td>
+                    @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
+                    {
+                        @Html.ActionLink("Comprar entrada", "Entrada", new { id = item.Id })
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 <p>-----------------------------------------------------------------------------------------</p>
-
-  
-
-                
+<!--<td>@*@Html.DisplayNameFor(model => item.NombreActividad)*@</td>-->
+<!--<td>@*@Html.DisplayNameFor(model => item.Categoria.Nombre)*@</td>-->
