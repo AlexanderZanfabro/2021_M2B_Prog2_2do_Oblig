@@ -65,6 +65,8 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                 HttpContext.Session.SetString("usuarioLogRol", u.Rol);
                 HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
                 HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
+                HttpContext.Session.SetInt32("usuarioLogId", u.Id);
+
                 return RedirectToAction("Index", "Home");
             }
 
