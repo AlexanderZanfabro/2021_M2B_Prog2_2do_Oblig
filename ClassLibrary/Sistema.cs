@@ -502,7 +502,7 @@ namespace Dominio
                 }
             }
 
-            return valorRetorno;
+            return valorRetorno * cantidadEntradas;
         }
 
        
