@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <ProjectReference Include="..\ClassLibrary\Dominio.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary\Dominio.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

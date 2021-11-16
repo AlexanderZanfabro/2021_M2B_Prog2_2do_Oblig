@@ -7,3 +7,13 @@ C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.dll
 C:\Users\Usuario\source\repos\2021_M2B_2doObligatorio_P2\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.pdb
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\bin\Debug\netcoreapp3.1\Dominio.deps.json
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.csproj.AssemblyReference.cache
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\ClassLibrary\obj\Debug\netcoreapp3.1\Dominio.pdb
