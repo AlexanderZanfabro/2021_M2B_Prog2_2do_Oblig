@@ -83,7 +83,7 @@ namespace Dominio
 
         #region Altas del Sistema
 
-        public Actividad AltaActividad(string nombreActividad, DateTime fechaYhoraActividad, int idLugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
+        public Actividad AltaActividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
         {
             Actividad nueva = null;
 
@@ -93,7 +93,7 @@ namespace Dominio
 
             foreach (Actividad ac in actividades)
             {
-                if (ac.NombreActividad == nombreActividad && ac.FechaYhoraActividad == fechaYhoraActividad && ac.IdLugar == idLugar)
+                if (ac.NombreActividad == nombreActividad && ac.FechaYhoraActividad == fechaYhoraActividad )
                 {
                     auxAbierto = true;
                 }
@@ -102,7 +102,7 @@ namespace Dominio
 
             if (!auxAbierto)
             {
-                nueva = new Actividad(nombreActividad, fechaYhoraActividad, idLugar, edadMinima, categoria, contadorMeGusta);
+                nueva = new Actividad(nombreActividad, fechaYhoraActividad, lugar, edadMinima, categoria, contadorMeGusta);
                 actividades.Add(nueva);
             }
 
@@ -469,7 +469,9 @@ namespace Dominio
 
         #endregion
 
-        //-------------------------------------------------------------------------------------------------------------------------
+        //----------------------------------------------------- Calcular el precio final con cantidad de entradas -----------------
+
+        // falta ligarlo a la cantidad de entradas
         public double CalcularPrecioFinal(int cantidadEntradas, string nombreLugar)
         {
             Lugar lugar = null;
@@ -503,10 +505,12 @@ namespace Dominio
             return valorRetorno;
         }
 
+       
+
         //---------------------------------------LOGIN----------------------------------------------------------------------------
 
 
-       public Usuario LoginUsuario(string username, string password){
+        public Usuario LoginUsuario(string username, string password){
            foreach(Usuario u in usuarios)
            {
                if(u.NombreUsuario == username && u.Contrasenia == password)
@@ -674,17 +678,17 @@ namespace Dominio
             Categoria c3 = AltaCategoria("Cine", "Proyección audiovisual de tipo comercial ó cultural");
             Categoria c4 = AltaCategoria("Concierto", "Representaciones musicales realizadas por una persona (solista) ó un conjunto de varias personas (banda ó grupo)");
 
-            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), 1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
-            Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), 3, Actividad.EdadMinimaPermitida.C13, c3, 200);
-            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), 5, Actividad.EdadMinimaPermitida.P, c4, 9000);
-            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), 1, Actividad.EdadMinimaPermitida.C16, c2, 5000);
-            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), 1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), l3, Actividad.EdadMinimaPermitida.C13, c3, 200);
+            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), l5, Actividad.EdadMinimaPermitida.P, c4, 9000);
+            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), l1, Actividad.EdadMinimaPermitida.C16, c2, 5000);
+            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
 
-            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), 2, Actividad.EdadMinimaPermitida.C18, c4, 20000);
-            Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), 2, Actividad.EdadMinimaPermitida.C13, c2, 1000);
-            Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), 4, Actividad.EdadMinimaPermitida.P, c1, 9500);
-            Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), 4, Actividad.EdadMinimaPermitida.P, c1, 5000);
-            Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), 2, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), l2, Actividad.EdadMinimaPermitida.C18, c4, 20000);
+            Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), l2, Actividad.EdadMinimaPermitida.C13, c2, 1000);
+            Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), l4, Actividad.EdadMinimaPermitida.P, c1, 9500);
+            Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), l4, Actividad.EdadMinimaPermitida.P, c1, 5000);
+            Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), l2, Actividad.EdadMinimaPermitida.C18, c4, 5000);
 
             Usuario u1 = AltaUsuario("John", "Smith", "john@montevideo.com.uy", DateTime.Parse("1981-01-10"), "john01", "1234@Aaa");
             Usuario u2 = AltaUsuario("Aida", "Aqua", "aAqua@montevideo.com.uy", DateTime.Parse("1978-05-20"), "aida01", "4321@Aaa");

@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Dominio
 {
-   public class Actividad
+    public class Actividad
     {
         private static int ultimoId1 = 1;
         public int Id { get; }
         public string NombreActividad { get; set; }
         public DateTime FechaYhoraActividad { get; set; }
-        public int IdLugar { get; set; }
+        public Lugar Lugar { get; set; }
         public EdadMinimaPermitida EdadMinima { get; set; }
 
         public static double PrecioBaseActividad = 350;
@@ -20,13 +20,13 @@ namespace Dominio
 
 
 
-        public Actividad(string nombreActividad, DateTime fechaYhoraActividad, int idLugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
+        public Actividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
         {
             Id = ultimoId1;
             ultimoId1++;
             NombreActividad = nombreActividad;
             FechaYhoraActividad = fechaYhoraActividad;
-            IdLugar = idLugar;
+            Lugar = lugar;
             EdadMinima = edadMinima;
 
             Categoria = categoria;
@@ -44,11 +44,20 @@ namespace Dominio
 
 
 
+      public double CalcularPrecioFinal2()
+        { double a = 0;
+
+            a = 1500;
+
+            return a;
+        }
+
+       
 
 
         public override string ToString()
         {
-            return $"Id {Id} NombreActividad: {NombreActividad} \n FechaYhoraActividad: {FechaYhoraActividad}  IdLugar: {IdLugar} EdadMinima: {EdadMinima} PrecioBaseActividad: {PrecioBaseActividad} \n Categoria: {Categoria} ContadorMeGusta: {ContadorMeGusta}";
+            return $"Id {Id} NombreActividad: {NombreActividad} \n FechaYhoraActividad: {FechaYhoraActividad}  Lugar: {Lugar} EdadMinima: {EdadMinima} PrecioBaseActividad: {PrecioBaseActividad} \n Categoria: {Categoria} ContadorMeGusta: {ContadorMeGusta}";
 
         }
 
