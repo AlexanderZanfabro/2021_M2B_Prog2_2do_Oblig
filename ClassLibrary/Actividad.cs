@@ -43,13 +43,28 @@ namespace Dominio
         }
 
 
+      public double CalcularPrecioFinal()
+      {
+            if (Lugar == null)
+                return -1.0;
 
-      public double CalcularPrecioFinal2()
-        { double a = 0;
+            double valorRetorno = PrecioBaseActividad;
+            if (Lugar is LugarAbierto)
+            {
+                if (Lugar.Dimensiones > 0.1)
+                    valorRetorno = valorRetorno * 1.10;
+            }
+            else
+            {
+                if (LugarCerrado.GetAforoMaximoPermitido() < 50)
+                    valorRetorno = valorRetorno * 1.30;
+                else if (LugarCerrado.GetAforoMaximoPermitido() > 50 && LugarCerrado.GetAforoMaximoPermitido() < 70)
+                {
+                    valorRetorno = valorRetorno * 1.15;
+                }
+            }
 
-            a = 1500;
-
-            return a;
+            return valorRetorno;
         }
 
        

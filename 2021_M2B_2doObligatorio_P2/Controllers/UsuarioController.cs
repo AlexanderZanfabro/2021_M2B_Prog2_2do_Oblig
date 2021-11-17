@@ -114,14 +114,74 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             
             return View();
         }
-
-        public IActionResult ComprarEntradas()
+        public IActionResult ComprarEntradas(int id)
         {
+            if (HttpContext.Session.GetInt32("usuarioLogId") == null)
+                return RedirectToAction("Index", "Home");
 
-            return
-                View();
+            Actividad act = null;
+
+            foreach (Actividad a in s.GetActividades())
+            {
+                if (a.Id == id)
+                {
+                    act = a;
+                    break;
+                }
+            }
+
+            if (act == null)
+                return RedirectToAction("Index", "Home");
+            else
+                return View(act);
         }
 
+        [HttpPost]
+        [ActionName("ComprarEntradas")]
+        public IActionResult ComprarEntradasPost(int cantidad)
+        {
+            Lugar lugar = null;
+            Actividad act = null;
+
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
+            if (HttpContext.Session.GetInt32("usuarioLogId") != null)
+            {
+                foreach (Actividad a in s.GetActividades())
+                {
+                    if (a.Id == id)
+                    {
+                        act = a;
+                        lugar = a.Lugar;
+                    }
+                }
+            }
+
+            if(act == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (cantidad <= 0)
+            {
+                ViewBag.Resultado = "Error";
+                return View(act);
+            }
+            else
+            {
+                Compra c = s.AltaCompra(id, cantidad, id, DateTime.Now, "Activa", s.CalcularPrecioFinal(cantidad, lugar.Nombre));
+                if (c != null)
+                {
+                    ViewBag.Resultado = "Compra exitosa";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.Resultado = "Un error ocurrio, intentalo nuevamente.";
+                    return View(act);
+                }
+            }
+            
+        }
 
         public IActionResult prueba()
         {

@@ -1,12 +1,11 @@
-﻿<h1>Comprar entradas</h1>
+﻿@model Dominio.Actividad
 
+<h2>Comprar entradas para @Model.NombreActividad</h2>
 
 <form method="post">
-
-    <h3>Comprar entradas</h3><br><br>
-    <lavel>Nombre actividad</lavel>
-    <input type="text" name="NombreActividad"><br>
-    <lavel>Cantidad de entradas</lavel>
-    <input type="number" name="CantidadEntradas"><br>
+    <label>Cantidad de entradas</label>
+    <input type="number" name="cantidad"><br>
     <input type="submit" value="Comprar">
 </form>
+
+@ViewBag.resultado
