@@ -51,7 +51,7 @@ namespace Dominio
             double valorRetorno = PrecioBaseActividad;
             if (Lugar is LugarAbierto)
             {
-                if (Lugar.Dimensiones > 1000)
+                if (Lugar.Dimensiones > 0.1)
                     valorRetorno = valorRetorno * 1.10;
             }
             else

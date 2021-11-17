@@ -471,7 +471,6 @@ namespace Dominio
 
         //----------------------------------------------------- Calcular el precio final con cantidad de entradas -----------------
 
-        // falta ligarlo a la cantidad de entradas
         public double CalcularPrecioFinal(int cantidadEntradas, string nombreLugar)
         {
             Lugar lugar = null;
@@ -490,7 +489,7 @@ namespace Dominio
             double valorRetorno = Actividad.PrecioBaseActividad;
             if(lugar is LugarAbierto)
             {
-                if(lugar.Dimensiones > 1000)
+                if(lugar.Dimensiones > 0.1)
                     valorRetorno = valorRetorno * 1.10;
             }
             else
