@@ -1,5 +1,7 @@
-﻿<h1>Comprar entradas</h1>
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Dominio.Actividad>
 
+<h2>Comprar entradas para @ViewBag.act.Nombre</h2>
 
 <form method="post">
 
@@ -10,3 +12,5 @@
     <input type="number" name="CantidadEntradas"><br>
     <input type="submit" value="Comprar">
 </form>
+
+@ViewBag.resultado
