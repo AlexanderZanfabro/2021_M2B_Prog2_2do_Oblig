@@ -117,7 +117,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         public IActionResult ComprarEntradas(int id)
         {
             if (HttpContext.Session.GetInt32("usuarioLogId") == null)
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Index", "Home");
 
             Actividad act = null;
 
@@ -131,7 +131,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             }
 
             if (act == null)
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Index", "Home");
             else
                 return View(act);
         }
@@ -141,6 +141,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         public IActionResult ComprarEntradasPost(int cantidad)
         {
             Lugar lugar = null;
+            Actividad act = null;
 
             int id = Int32.Parse(RouteData.Values["id"].ToString());
             if (HttpContext.Session.GetInt32("usuarioLogId") != null)
@@ -149,15 +150,21 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                 {
                     if (a.Id == id)
                     {
+                        act = a;
                         lugar = a.Lugar;
                     }
                 }
             }
 
-            if (cantidad <= 0 || lugar == null)
+            if(act == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (cantidad <= 0)
             {
                 ViewBag.Resultado = "Error";
-                return View();
+                return View(act);
             }
             else
             {
@@ -165,12 +172,12 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                 if (c != null)
                 {
                     ViewBag.Resultado = "Compra exitosa";
-                    return RedirectToAction("Home", "Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ViewBag.Resultado = "Un error ocurrio, intentalo nuevamente.";
-                    return View();
+                    return View(act);
                 }
             }
             
