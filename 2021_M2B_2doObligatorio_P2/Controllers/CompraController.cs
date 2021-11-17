@@ -30,5 +30,10 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                 return View();
         }
 
+        [HttpPost]
+        public IActionResult Compra()
+        {
+            return View();
+        }
     }
 }

@@ -1,1 +1,11 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Dominio.Actividad>
+
+<h2>Comprar entradas para @ViewBag.act.Nombre</h2>
+
+<form method="post">
+
+    <input type="submit" value="Ingresar">
+</form>
+
+@ViewBag.resultado

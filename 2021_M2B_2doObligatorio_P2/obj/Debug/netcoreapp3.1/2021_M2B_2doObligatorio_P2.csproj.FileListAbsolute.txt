@@ -162,3 +162,4 @@ C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\2021_M2B_2doObligatorio_P2.Views.pdb
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\2021_M2B_2doObligatorio_P2.csproj.CopyComplete
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\2021_M2B_2doObligatorio_P2.genruntimeconfig.cache
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Compra.cshtml.g.cs
