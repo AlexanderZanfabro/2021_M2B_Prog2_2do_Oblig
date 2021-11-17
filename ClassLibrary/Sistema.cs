@@ -201,7 +201,7 @@ namespace Dominio
                 {
 
 
-                    if (lu.Nombre != nombre)
+                    if (lu.Nombre == nombre)
                     {
                         flag = true;
                     }
@@ -235,7 +235,7 @@ namespace Dominio
 
                 foreach (Lugar lu in lugares)
                 {
-                    if (lu.Nombre != nombre)
+                    if (lu.Nombre == nombre)
                     {
                         flag = true;
                     }
