@@ -501,7 +501,7 @@ namespace Dominio
                 }
             }
 
-            return valorRetorno * cantidadEntradas;
+            return Math.Round(valorRetorno * cantidadEntradas, 2);
         }
 
        
