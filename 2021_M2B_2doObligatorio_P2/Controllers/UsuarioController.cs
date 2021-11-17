@@ -115,14 +115,6 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             return View();
         }
 
-        public IActionResult ComprarEntradas()
-        {
-
-            return
-                View();
-        }
-
-
         public IActionResult prueba()
         {
 

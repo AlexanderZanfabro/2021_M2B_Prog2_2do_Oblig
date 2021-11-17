@@ -25,7 +25,7 @@
                 <td>
                     @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
                     {
-                        @Html.ActionLink("Comprar entrada", "Compra", new { id = item.Id })
+                        @Html.ActionLink("Comprar entrada", "ComprarEntradas", new { id = item.Id })
                     }
 
                 </td>
