@@ -116,7 +116,9 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         }
         public IActionResult ComprarEntradas(int id)
         {
-            // TODO SAFETY CHECKS like if registered
+            if (HttpContext.Session.GetInt32("usuarioLogId") == null)
+                return RedirectToAction("Home", "Index");
+
             Actividad act = null;
 
             foreach (Actividad a in s.GetActividades())
@@ -151,18 +153,27 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                     }
                 }
             }
-            
+
             if (cantidad <= 0 || lugar == null)
+            {
                 ViewBag.Resultado = "Error";
+                return View();
+            }
             else
             {
                 Compra c = s.AltaCompra(id, cantidad, id, DateTime.Now, "Activa", s.CalcularPrecioFinal(cantidad, lugar.Nombre));
                 if (c != null)
+                {
                     ViewBag.Resultado = "Compra exitosa";
+                    return RedirectToAction("Home", "Index");
+                }
                 else
+                {
                     ViewBag.Resultado = "Un error ocurrio, intentalo nuevamente.";
+                    return View();
+                }
             }
-            return View();
+            
         }
 
         public IActionResult prueba()
