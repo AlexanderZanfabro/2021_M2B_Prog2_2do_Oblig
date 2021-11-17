@@ -135,9 +135,33 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         }
 
         [HttpPost]
-        public IActionResult ComprarEntradas(int id, int cantidad)
+        [ActionName("ComprarEntradas")]
+        public IActionResult ComprarEntradasPost(int cantidad)
         {
+            Lugar lugar = null;
 
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
+            if (HttpContext.Session.GetInt32("usuarioLogId") != null)
+            {
+                foreach (Actividad a in s.GetActividades())
+                {
+                    if (a.Id == id)
+                    {
+                        lugar = a.Lugar;
+                    }
+                }
+            }
+            
+            if (cantidad <= 0 || lugar == null)
+                ViewBag.Resultado = "Error";
+            else
+            {
+                Compra c = s.AltaCompra(id, cantidad, id, DateTime.Now, "Activa", s.CalcularPrecioFinal(cantidad, lugar.Nombre));
+                if (c != null)
+                    ViewBag.Resultado = "Compra exitosa";
+                else
+                    ViewBag.Resultado = "Un error ocurrio, intentalo nuevamente.";
+            }
             return View();
         }
 
