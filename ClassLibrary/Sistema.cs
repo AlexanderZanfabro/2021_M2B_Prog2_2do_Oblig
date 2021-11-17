@@ -501,7 +501,7 @@ namespace Dominio
                 }
             }
 
-            return valorRetorno * cantidadEntradas;
+            return cantidadEntradas > 5 ? (valorRetorno * cantidadEntradas) * 0.95 : valorRetorno * cantidadEntradas;
         }
 
        

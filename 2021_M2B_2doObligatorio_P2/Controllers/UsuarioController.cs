@@ -114,6 +114,32 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             
             return View();
         }
+        public IActionResult ComprarEntradas(int id)
+        {
+            // TODO SAFETY CHECKS like if registered
+            Actividad act = null;
+
+            foreach (Actividad a in s.GetActividades())
+            {
+                if (a.Id == id)
+                {
+                    act = a;
+                    break;
+                }
+            }
+
+            if (act == null)
+                return RedirectToAction("Home", "Index");
+            else
+                return View(act);
+        }
+
+        [HttpPost]
+        public IActionResult ComprarEntradas(int id, int cantidad)
+        {
+
+            return View();
+        }
 
         public IActionResult prueba()
         {

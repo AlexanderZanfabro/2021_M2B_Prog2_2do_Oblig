@@ -1,13 +1,11 @@
-﻿@model IEnumerable<Dominio.Actividad>
+﻿@model Dominio.Actividad
 
-<h2>Comprar entradas para @ViewBag.act.NombreActividad</h2>
+<h2>Comprar entradas para @Model.NombreActividad</h2>
 
 <form method="post">
-
-    <h3>Comprar entradas</h3><br><br>
-    <lavel>Nombre actividad</lavel>
-    <input type="text" name="NombreActividad"><br>
-    <lavel>Cantidad de entradas</lavel>
+    <label>Nombre actividad</label>
+    <input type="text" name="NombreActividad" value="@Model.NombreActividad" readonly><br>
+    <label>Cantidad de entradas</label>
     <input type="number" name="CantidadEntradas"><br>
     <input type="submit" value="Comprar">
 </form>
