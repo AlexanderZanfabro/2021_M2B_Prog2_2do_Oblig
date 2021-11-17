@@ -37,48 +37,64 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         [HttpPost]
         public IActionResult Login(string nombreUsuario, string contrasenia)
         {
-            if(nombreUsuario == null || contrasenia == null)
+            if (HttpContext.Session.GetString("usuarioLogRol") != "Registrado")
             {
-                ViewBag.Resultado = "Un campo introducido es invalido";
+                if (nombreUsuario == null || contrasenia == null)
+                {
+                    ViewBag.Resultado = "Un campo introducido es invalido";
+                    return View();
+                }
+
+                if (nombreUsuario == "" || contrasenia == "")
+                {
+                    ViewBag.Resultado = "Un campo introducido es invalido";
+                    return View();
+                }
+
+                if (HttpContext.Session.GetString("usuarioLogueadoUsername") != null)
+                {
+                    ViewBag.Resultado = "Error";
+                    return View();
+                }
+
+
+                Usuario u = s.LoginUsuario(nombreUsuario, contrasenia);
+
+                if (u != null)
+                {
+                    ViewBag.Resultado = "Logueado con exito!";
+                    HttpContext.Session.SetString("usuarioLogUsername", u.NombreUsuario);
+                    HttpContext.Session.SetString("usuarioLogRol", u.Rol);
+                    HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
+                    HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
+                    HttpContext.Session.SetInt32("usuarioLogId", u.Id);
+
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Resultado = "No se encontro un usuario con esas credenciales";
                 return View();
             }
-            
-            if(nombreUsuario == "" || contrasenia == "")
+            else
             {
-                ViewBag.Resultado = "Un campo introducido es invalido";
                 return View();
             }
-
-            if(HttpContext.Session.GetString("usuarioLogueadoUsername") != null)
-            {
-                ViewBag.Resultado = "Error";
-                return View();
-            }
-
-            
-            Usuario u = s.LoginUsuario(nombreUsuario, contrasenia);
-
-            if(u != null)
-            {
-                ViewBag.Resultado = "Logueado con exito!";
-                HttpContext.Session.SetString("usuarioLogUsername", u.NombreUsuario);
-                HttpContext.Session.SetString("usuarioLogRol", u.Rol);
-                HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
-                HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
-                HttpContext.Session.SetInt32("usuarioLogId", u.Id);
-
-                return RedirectToAction("Index", "Home");
-            }
-
-            ViewBag.Resultado = "No se encontro un usuario con esas credenciales";
-            return View();
+          
         }
 
 
         public IActionResult Logout()
         {
-            return View();
+            if (HttpContext.Session.GetString("usuarioLogUsername") != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
+           
 
         [HttpPost]
         public IActionResult Logout(string s)
@@ -92,9 +108,17 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
         public IActionResult Registro()
         {
-            
-            return View();
+
+            if (HttpContext.Session.GetString("usuarioLogRol") != "Registrado" && HttpContext.Session.GetString("usuarioLogRol") != "Operador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
+           
 
         [HttpPost]
         public IActionResult Registro(string nombre, string apellido, string email, DateTime fechaNacimiento, string nombreUsuario, string contrasenia)
@@ -183,10 +207,28 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             
         }
 
-        public IActionResult prueba()
+        public IActionResult ListaDeUsuarios()
         {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+                List<Usuario> usuarios = s.GetUsuarios();
+                usuarios.Sort();
+                return View(usuarios);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+           
 
-            return View(s.GetActividades());
+          
+        }
+
+        public IActionResult ListaDeCompras()
+        {
+            List<Compra> c = s.GetCompras();
+
+            return View(c);
         }
     }
 }

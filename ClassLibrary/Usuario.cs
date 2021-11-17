@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace Dominio
 {
-  public class Usuario
+  public class Usuario: IComparable<Usuario>
     {
         private static int ultimoId4 = 1;
         public int Id { get; }
@@ -39,9 +40,31 @@ namespace Dominio
             return $" Id {Id} Nombre {Nombre} Apellido {Apellido} Email {Email} FechaNacimiento {FechaNacimiento} Nombre de Usuario {NombreUsuario} Contraseña {Contrasenia} Rol {Rol} Estado activo {Activo}";
         }
 
-
-
-      
+        public int CompareTo([AllowNull] Usuario other)
+        {
+           if(this.Apellido.CompareTo(other.Apellido) > 0)
+            {
+                return 1;
+            }else if(this.Apellido.CompareTo(other.Apellido) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                if (this.Nombre.CompareTo(other.Nombre) > 0)
+                {
+                    return 1;
+                }
+                else if (this.Nombre.CompareTo(other.Nombre) < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
 
        
     }

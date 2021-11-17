@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Dominio.Actividad>
+﻿@model IEnumerable<Dominio.Compra>
 
 @{
-    ViewData["Title"] = "prueba";
+    ViewData["Title"] = "ListaDeCompras";
 }
 
-<h1>prueba</h1>
+<h1>ListaDeCompras</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,19 +16,22 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NombreActividad)
+                @Html.DisplayNameFor(model => model.IdActividadComprada)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaYhoraActividad)
+                @Html.DisplayNameFor(model => model.CantidadEntradas)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lugar)
+                @Html.DisplayNameFor(model => model.IdUsuarioQueCompra)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EdadMinima)
+                @Html.DisplayNameFor(model => model.FechaYhora)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContadorMeGusta)
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioFinalEntrada)
             </th>
             <th></th>
         </tr>
@@ -40,19 +43,22 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreActividad)
+                @Html.DisplayFor(modelItem => item.IdActividadComprada)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaYhoraActividad)
+                @Html.DisplayFor(modelItem => item.CantidadEntradas)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lugar)
+                @Html.DisplayFor(modelItem => item.IdUsuarioQueCompra)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EdadMinima)
+                @Html.DisplayFor(modelItem => item.FechaYhora)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ContadorMeGusta)
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioFinalEntrada)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
