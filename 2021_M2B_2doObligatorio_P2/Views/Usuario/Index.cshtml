@@ -21,7 +21,7 @@
                 <td>@item.NombreActividad</td>
                 <td>@item.Categoria.Nombre</td>
                 <td>@item.FechaYhoraActividad</td>
-                <td>@item.CalcularPrecioFinal()</td>
+                <td>@item.CalcularPrecioFinal().ToString("N2")</td>
                 <td>
                     @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
                     {
