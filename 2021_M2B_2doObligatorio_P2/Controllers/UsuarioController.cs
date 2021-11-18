@@ -230,5 +230,23 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
             return View(c);
         }
+
+        public IActionResult MisCompras()
+        {
+            int? userId = HttpContext.Session.GetInt32("usuarioLogId");
+            if (userId == null)
+                return RedirectToAction("Index", "Home");
+
+            List<Compra> compras = new List<Compra>();
+            foreach(Compra c in s.GetCompras())
+            {
+                if(c.IdUsuarioQueCompra == userId)
+                {
+                    compras.Add(c);
+                }
+            }
+
+            return View(compras);
+        }
     }
 }

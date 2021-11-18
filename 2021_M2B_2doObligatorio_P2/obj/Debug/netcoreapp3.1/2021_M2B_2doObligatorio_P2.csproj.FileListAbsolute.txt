@@ -153,7 +153,6 @@ C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Index.cshtml.g.cs
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Login.cshtml.g.cs
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Logout.cshtml.g.cs
-C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\prueba.cshtml.g.cs
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Registro.cshtml.g.cs
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
@@ -281,3 +280,5 @@ C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P
 C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaDeCompras.cshtml.g.cs
 C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaDeUsuarios.cshtml.g.cs
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaDeCompras.cshtml.g.cs
+C:\Users\Federico\Source\Repos\AlexanderZanfabro\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaDeUsuarios.cshtml.g.cs
