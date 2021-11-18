@@ -179,7 +179,8 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                     }
                 }
             }
-
+            
+            int userId = (int) HttpContext.Session.GetInt32("usuarioLogId");
             if(act == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -192,7 +193,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             }
             else
             {
-                Compra c = s.AltaCompra(id, cantidad, id, DateTime.Now, "Activa", s.CalcularPrecioFinal(cantidad, lugar.Nombre));
+                Compra c = s.AltaCompra(id, cantidad, userId, DateTime.Now, "Activa", s.CalcularPrecioFinal(cantidad, lugar.Nombre));
                 if (c != null)
                 {
                     ViewBag.Resultado = "Compra exitosa";
