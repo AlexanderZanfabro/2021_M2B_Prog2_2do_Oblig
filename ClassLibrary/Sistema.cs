@@ -143,7 +143,17 @@ namespace Dominio
             {
                 if (u.Id == idUsuarioQueCompra)
                 {
-                    nueva = new Compra(idActividadComprada, cantidadEntradas, idUsuarioQueCompra, fechaYhora, estado, precioFinalEntrada);
+                    Actividad a = null;
+                    foreach(Actividad _a in actividades)
+                    {
+                        if (_a.Id == idActividadComprada)
+                            a = _a;
+                    }
+
+                    if (a == null)
+                        return nueva;
+
+                    nueva = new Compra(a, cantidadEntradas, idUsuarioQueCompra, fechaYhora, estado, precioFinalEntrada);
                     compras.Add(nueva);
                 }
 
