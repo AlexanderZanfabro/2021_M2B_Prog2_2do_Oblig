@@ -153,7 +153,7 @@ namespace Dominio
                     if (a == null)
                         return nueva;
 
-                    nueva = new Compra(a, cantidadEntradas, idUsuarioQueCompra, fechaYhora, estado, precioFinalEntrada);
+                    nueva = new Compra(a, cantidadEntradas, idUsuarioQueCompra, fechaYhora, estado, Math.Round(precioFinalEntrada, 2));
                     compras.Add(nueva);
                 }
 

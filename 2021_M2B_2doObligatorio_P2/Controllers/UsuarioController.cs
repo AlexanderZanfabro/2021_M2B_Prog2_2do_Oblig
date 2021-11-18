@@ -20,11 +20,6 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             List<Actividad> listaActividades = s.GetActividadesActuales();
             ViewBag.ListadoAct = listaActividades;
 
-            foreach(var a in listaActividades)
-            {
-               
-            }
-          
             return View();
         }
 
