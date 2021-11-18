@@ -281,3 +281,4 @@ C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P
 C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaDeCompras.cshtml.g.cs
 C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaDeUsuarios.cshtml.g.cs
+C:\Users\Usuario\source\repos\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\EliminarUsuarioRegistrado.cshtml.g.cs

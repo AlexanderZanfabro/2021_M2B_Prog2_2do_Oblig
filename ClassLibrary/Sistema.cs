@@ -655,6 +655,54 @@ namespace Dominio
 
         //--------------------------------------------------------------------------------------------------------------------------
 
+        #region SoloUsuariosRegistrados
+
+        public List<Usuario> GetSoloUsuariosRegistrados()
+        {
+            List < Usuario > retorno = new List<Usuario>();
+
+            foreach(Usuario u in usuarios)
+            {
+                if (u.Rol.Equals("Registrado"))
+                {
+                    retorno.Add(u);
+                }
+            }
+
+
+            return retorno;
+
+        }
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------------------------------
+
+        #region Eliminar usuario
+
+
+        public bool EliminarUsuario(int id)
+        {
+            bool eliminado = false;
+         
+            foreach (Usuario usu in GetSoloUsuariosRegistrados()) if (!eliminado)
+                {
+                if (usu.Id == id ) 
+                {
+                        usu.Activo = false;
+
+                        eliminado = true;
+                }
+            }
+
+
+            return eliminado;
+        }
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------------------------------
+
         #endregion
 
 

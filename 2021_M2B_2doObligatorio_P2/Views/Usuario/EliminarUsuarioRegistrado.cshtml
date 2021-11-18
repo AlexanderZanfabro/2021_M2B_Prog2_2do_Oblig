@@ -1,0 +1,42 @@
+﻿
+<h1>Eliminar Usuario Registrado</h1>
+
+
+
+<form method="post" id="eliminarUsuario">
+
+    <label>Ingrese Id del usuario a eliminar</label>
+    <input type="text" name="id" id="usuarioParaEliminar">
+    <br>
+    <input type="submit" value="Eliminar">
+
+
+
+
+</form>
+
+<p id="pMensaje">@ViewBag.MensajeEliminacion</p>
+
+@section Script{
+
+    <script>
+        document.querySelector("#eliminarUsuario").addEventListener("submit", verificaCampo);
+
+        function verificaCampo(evento) {
+            evento.preventDefault();
+
+            let idUsuario = Number(document.querySelector("#usuarioParaEliminar").value);
+           
+            if (idUsuario != "") {
+                this.submit();
+            } else {
+                document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un Id de usuario ";
+            }
+
+        }
+
+
+    </script>
+
+
+ }

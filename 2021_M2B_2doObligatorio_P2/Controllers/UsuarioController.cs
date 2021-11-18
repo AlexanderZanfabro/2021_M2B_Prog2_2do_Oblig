@@ -68,6 +68,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                     HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
                     HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
                     HttpContext.Session.SetInt32("usuarioLogId", u.Id);
+                   
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -211,7 +212,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
-                List<Usuario> usuarios = s.GetUsuarios();
+                List<Usuario> usuarios = s.GetSoloUsuariosRegistrados();
                 usuarios.Sort();
                 return View(usuarios);
             }
@@ -230,5 +231,36 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
             return View(c);
         }
+
+        public IActionResult EliminarUsuarioRegistrado()
+        {
+            if(HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            } 
+        }
+
+
+        [HttpPost]
+        public IActionResult EliminarUsuarioRegistrado(int id)
+        {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+              bool usu =  s.EliminarUsuario(id);
+
+                ViewBag.MensajeEliminacion = "Usuario eliminado con exito";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+
     }
 }
