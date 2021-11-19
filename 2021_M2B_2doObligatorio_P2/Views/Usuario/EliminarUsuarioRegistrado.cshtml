@@ -17,26 +17,27 @@
 
 <p id="pMensaje">@ViewBag.MensajeEliminacion</p>
 
-@section Script{
 
-    <script>
-        document.querySelector("#eliminarUsuario").addEventListener("submit", verificaCampo);
+@*@section Script{
 
-        function verificaCampo(evento) {
-            evento.preventDefault();
+       <script>
+           document.querySelector("#eliminarUsuario").addEventListener("submit", verificaCampo);
 
-            let idUsuario = Number(document.querySelector("#usuarioParaEliminar").value);
-           
-            if (idUsuario != "") {
-                this.submit();
-            } else {
-                document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un Id de usuario ";
-            }
+           function verificaCampo(evento) {
+               evento.preventDefault();
 
-        }
+               let idUsuario = Number(document.querySelector("#usuarioParaEliminar").value);
 
+               if (idUsuario != 0) {
+                   this.submit();
+               } else {
+                   document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un Id de usuario ";
+               }
 
-    </script>
+           }
 
 
- }
+       </script>
+
+
+    }*@

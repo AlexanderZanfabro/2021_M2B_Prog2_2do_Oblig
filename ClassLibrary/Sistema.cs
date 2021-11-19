@@ -703,6 +703,49 @@ namespace Dominio
 
         //--------------------------------------------------------------------------------------------------------------------------
 
+        #region GetComprasEntreFechas
+
+        /*
+          public List<Compra> GetComprasEntreFechas(string f1, string f2)
+        {
+            List<Compra> retorno = new List<Compra>();
+            
+            DateTime F1 = default(DateTime);
+            DateTime F2 = default(DateTime);
+
+             F1 = DateTime.Parse(f1);
+             F2 = DateTime.Parse(f2);
+
+            if (F1 > F2)
+            {
+                DateTime aux;
+                aux = F1;
+                F1 = F2;
+                F2 = aux;
+
+            }
+           
+
+
+            foreach (Compra c in compras)
+            {
+                if(c.FechaYhora > F1 && c.FechaYhora < F2)
+                {
+                    retorno.Add(c);
+                }
+            }
+
+
+            return retorno;
+        }
+
+         */
+
+
+        #endregion
+
+        //-------------------------------------------------------------------------------------------------------------------------
+
         #endregion
 
 

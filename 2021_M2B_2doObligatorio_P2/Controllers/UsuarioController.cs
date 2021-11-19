@@ -234,7 +234,9 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
         public IActionResult EliminarUsuarioRegistrado()
         {
-            if(HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+           
+
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
                 return View();
             }
@@ -253,7 +255,8 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
               bool usu =  s.EliminarUsuario(id);
 
                 ViewBag.MensajeEliminacion = "Usuario eliminado con exito";
-                return View();
+                // return View();
+                return RedirectToAction("ListaDeUsuarios", "Usuario");
             }
             else
             {
@@ -261,6 +264,40 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             }
         }
 
+      
+        public IActionResult ComprasEntreFechas(string f1, string f2)
+        {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+
+                List<Compra> comprasEntreFechas = s.GetCompras();// va get compras entre dos fechas
+
+                return View(comprasEntreFechas);
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+           
+        }
+
+        [HttpPost]
+
+        public IActionResult ComprasEntreFechas(string f1, string f2 , string f3)
+        {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+                List<Compra> comprasEntreFechas = s.GetCompras();// va get compras entre dos fechas
+
+                return View(comprasEntreFechas);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
 
     }
 }
