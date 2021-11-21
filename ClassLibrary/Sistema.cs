@@ -48,6 +48,7 @@ namespace Dominio
 
         private List<Usuario> usuarios = new List<Usuario>();
 
+        private List<Like> likes = new List<Like>();
         #endregion
 
 
@@ -73,6 +74,8 @@ namespace Dominio
         public List<Lugar> GetLugares() { return lugares; }
 
         public List<Usuario> GetUsuarios() { return usuarios; }
+        
+        public List<Like> GetLikes() { return likes; }
 
         #endregion
 
@@ -83,7 +86,7 @@ namespace Dominio
 
         #region Altas del Sistema
 
-        public Actividad AltaActividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
+        public Actividad AltaActividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria)
         {
             Actividad nueva = null;
 
@@ -102,7 +105,7 @@ namespace Dominio
 
             if (!auxAbierto)
             {
-                nueva = new Actividad(nombreActividad, fechaYhoraActividad, lugar, edadMinima, categoria, contadorMeGusta);
+                nueva = new Actividad(nombreActividad, fechaYhoraActividad, lugar, edadMinima, categoria);
                 actividades.Add(nueva);
             }
 
@@ -164,7 +167,33 @@ namespace Dominio
             return nueva;
         }
 
+        //--------------------------------------------------------------------------------------------------------------------------
 
+        public Like AltaLike(int idUsuario, int idActividad)
+        {
+            foreach(Like l in likes)
+            {
+                if (l.idUsuario == idUsuario && l.idActividad == idActividad)
+                    return null;
+            }
+
+            foreach(Usuario u in usuarios)
+            {
+                if(u.Id == idUsuario)
+                {
+                    foreach(Actividad a in actividades)
+                    {
+                        if(a.Id == idActividad)
+                        {
+                            Like l = new Like(idActividad, idUsuario);
+                            return l;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
 
         //--------------------------------------------------------------------------------------------------------------------------
 
@@ -514,6 +543,17 @@ namespace Dominio
             return cantidadEntradas > 5 ? (valorRetorno * cantidadEntradas) * 0.95 : valorRetorno * cantidadEntradas;
         }
 
+        // Funciones relacionadas a Like
+        public bool HasUserLiked(int idActividad, int idUsuario)
+        {
+            foreach(Like l in likes)
+            {
+                if (l.idActividad == idActividad && l.idUsuario == idUsuario)
+                    return true;
+            }
+
+            return false;
+        }
        
 
         //---------------------------------------LOGIN----------------------------------------------------------------------------
@@ -687,17 +727,17 @@ namespace Dominio
             Categoria c3 = AltaCategoria("Cine", "Proyección audiovisual de tipo comercial ó cultural");
             Categoria c4 = AltaCategoria("Concierto", "Representaciones musicales realizadas por una persona (solista) ó un conjunto de varias personas (banda ó grupo)");
 
-            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
-            Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), l3, Actividad.EdadMinimaPermitida.C13, c3, 200);
-            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), l5, Actividad.EdadMinimaPermitida.P, c4, 9000);
-            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), l1, Actividad.EdadMinimaPermitida.C16, c2, 5000);
-            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4);
+            Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), l3, Actividad.EdadMinimaPermitida.C13, c3);
+            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), l5, Actividad.EdadMinimaPermitida.P, c4);
+            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), l1, Actividad.EdadMinimaPermitida.C16, c2);
+            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4);
 
-            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), l2, Actividad.EdadMinimaPermitida.C18, c4, 20000);
-            Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), l2, Actividad.EdadMinimaPermitida.C13, c2, 1000);
-            Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), l4, Actividad.EdadMinimaPermitida.P, c1, 9500);
-            Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), l4, Actividad.EdadMinimaPermitida.P, c1, 5000);
-            Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), l2, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), l2, Actividad.EdadMinimaPermitida.C18, c4);
+            Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), l2, Actividad.EdadMinimaPermitida.C13, c2);
+            Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), l4, Actividad.EdadMinimaPermitida.P, c1);
+            Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), l4, Actividad.EdadMinimaPermitida.P, c1);
+            Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), l2, Actividad.EdadMinimaPermitida.C18, c4);
 
             Usuario u1 = AltaUsuario("John", "Smith", "john@montevideo.com.uy", DateTime.Parse("1981-01-10"), "john01", "1234@Aaa");
             Usuario u2 = AltaUsuario("Aida", "Aqua", "aAqua@montevideo.com.uy", DateTime.Parse("1978-05-20"), "aida01", "4321@Aaa");

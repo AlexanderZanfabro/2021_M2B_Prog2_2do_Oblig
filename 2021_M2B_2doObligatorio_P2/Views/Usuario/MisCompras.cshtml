@@ -23,12 +23,15 @@ else
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.ActividadComprada.NombreActividad)</td>
-                    <td>@Html.DisplayFor(modelItem => item.FechaYhora)</td>
-                    <td>@Html.DisplayFor(modelItem => item.CantidadEntradas)</td>
-                    <td>@Html.DisplayFor(modelItem => item.PrecioFinalEntrada)</td>
-                </tr>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ActividadComprada.NombreActividad)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaYhora)</td>
+                <td>@Html.DisplayFor(modelItem => item.CantidadEntradas)</td>
+                <td>@Html.DisplayFor(modelItem => item.PrecioFinalEntrada)</td>
+                <td></td>
+                <td>Reembolso</td>
+
+            </tr>
 
             }
         </tbody>
