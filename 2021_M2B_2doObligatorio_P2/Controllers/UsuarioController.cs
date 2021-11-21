@@ -285,11 +285,11 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
-              //  DateTime fecha1 = DateTime.Parse(f1);
-               // DateTime fecha2 = DateTime.Parse(f2);
+               DateTime fecha1 = DateTime.Parse(f1);
+               DateTime fecha2 = DateTime.Parse(f2);
 
 
-                List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(f1, f2);
+                List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(fecha1, fecha2);
 
                 ViewBag.ListComp = comprasEntreFechas;
                 return View();
