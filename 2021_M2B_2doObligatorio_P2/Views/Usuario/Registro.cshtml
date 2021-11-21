@@ -18,13 +18,20 @@
     <input type="text" name="nombreUsuario" id="nombreUsuario">
     <br>
     <label>Contraseña</label>
-    <input type="text" name="contrasenia" id="contrasenia">
+    <input type="password" name="contrasenia" id="contrasenia">
     <br>
 
     <input type="submit" value="Registrarse">
 </form>
 
-<p id="pMensaje">@ViewBag.Msg</p>
+<p id="pMensaje">@ViewBag.Msg</p><br><br>
+
+<p>Nombre y Apellido deben de tener un largo mínimo de 2 caracteres</p>
+<p>La contraseña deben de tener un largo mínimo de 2 caracteres</p>
+<p> y contendra al menos una mayúscula, una minúscula y un dígito.</p>
+
+
+
 @{
     <script>
         document.querySelector("#registroUsuario").addEventListener("submit", controlForm);

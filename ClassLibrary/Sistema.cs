@@ -755,16 +755,16 @@ namespace Dominio
 
         #region GetComprasEntreFechas
 
-        /*
-          public List<Compra> GetComprasEntreFechas(string f1, string f2)
+        
+          public List<Compra> GetComprasEntreFechas(DateTime f1, DateTime f2)
         {
             List<Compra> retorno = new List<Compra>();
             
             DateTime F1 = default(DateTime);
             DateTime F2 = default(DateTime);
 
-             F1 = DateTime.Parse(f1);
-             F2 = DateTime.Parse(f2);
+             F1 = f1;
+             F2 = f2;
 
             if (F1 > F2)
             {
@@ -789,7 +789,7 @@ namespace Dominio
             return retorno;
         }
 
-         */
+         
 
 
         #endregion
