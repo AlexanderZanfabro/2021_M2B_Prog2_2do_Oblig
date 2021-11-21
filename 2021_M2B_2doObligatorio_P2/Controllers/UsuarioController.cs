@@ -20,10 +20,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             List<Actividad> listaActividades = s.GetActividadesActuales();
             ViewBag.ListadoAct = listaActividades;
 
-            foreach(var a in listaActividades)
-            {
-               
-            }
+           
           
             return View();
         }
@@ -265,14 +262,14 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         }
 
       
-        public IActionResult ComprasEntreFechas(string f1, string f2)
+        public IActionResult ComprasEntreFechas()
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
 
-                List<Compra> comprasEntreFechas = s.GetCompras();// va get compras entre dos fechas
+               ViewBag.ListComp = "";
 
-                return View(comprasEntreFechas);
+                return View();
 
             }
             else
@@ -288,9 +285,14 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
-                List<Compra> comprasEntreFechas = s.GetCompras();// va get compras entre dos fechas
+              //  DateTime fecha1 = DateTime.Parse(f1);
+               // DateTime fecha2 = DateTime.Parse(f2);
 
-                return View(comprasEntreFechas);
+
+                List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(f1, f2);
+
+                ViewBag.ListComp = comprasEntreFechas;
+                return View();
             }
             else
             {

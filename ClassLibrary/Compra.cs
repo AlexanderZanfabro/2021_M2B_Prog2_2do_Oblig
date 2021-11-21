@@ -12,7 +12,7 @@ namespace Dominio
 
         public int CantidadEntradas { get; set; }
         public int IdUsuarioQueCompra { get; set; }
-        public DateTime FechaYhora { get; set; }
+        public DateTime? FechaYhora { get; set; }
         public string Estado { get; set; }
         public double PrecioFinalEntrada { get; set; }
 
