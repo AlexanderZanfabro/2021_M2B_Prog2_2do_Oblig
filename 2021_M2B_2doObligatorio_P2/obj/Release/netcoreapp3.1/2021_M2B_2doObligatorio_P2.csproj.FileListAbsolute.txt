@@ -166,3 +166,4 @@ C:\Users\Usuario\source\repos\obligatorio\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doO
 C:\Users\Usuario\source\repos\obligatorio\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Release\netcoreapp3.1\2021_M2B_2doObligatorio_P2.dll
 C:\Users\Usuario\source\repos\obligatorio\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Release\netcoreapp3.1\2021_M2B_2doObligatorio_P2.pdb
 C:\Users\Usuario\source\repos\obligatorio\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Release\netcoreapp3.1\2021_M2B_2doObligatorio_P2.genruntimeconfig.cache
+C:\Users\Usuario\source\repos\obligatorio\2021_M2B_Prog2_2do_Oblig\2021_M2B_2doObligatorio_P2\obj\Release\netcoreapp3.1\Razor\Views\Usuario\RestablecerUsuario.cshtml.g.cs
