@@ -32,49 +32,75 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         [HttpPost]
         public IActionResult Login(string nombreUsuario, string contrasenia)
         {
-            if (HttpContext.Session.GetString("usuarioLogRol") != "Registrado")
+            bool usuarioEnActividad = true;
+            foreach (Usuario usu in s.GetUsuarios()) if(usuarioEnActividad)
             {
-                if (nombreUsuario == null || contrasenia == null)
-                {
-                    ViewBag.Resultado = "Un campo introducido es invalido";
-                    return View();
-                }
-
-                if (nombreUsuario == "" || contrasenia == "")
-                {
-                    ViewBag.Resultado = "Un campo introducido es invalido";
-                    return View();
-                }
-
-                if (HttpContext.Session.GetString("usuarioLogueadoUsername") != null)
-                {
-                    ViewBag.Resultado = "Error";
-                    return View();
-                }
-
-
-                Usuario u = s.LoginUsuario(nombreUsuario, contrasenia);
-
-                if (u != null)
-                {
-                    ViewBag.Resultado = "Logueado con exito!";
-                    HttpContext.Session.SetString("usuarioLogUsername", u.NombreUsuario);
-                    HttpContext.Session.SetString("usuarioLogRol", u.Rol);
-                    HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
-                    HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
-                    HttpContext.Session.SetInt32("usuarioLogId", u.Id);
+               
+                if(usu.NombreUsuario == nombreUsuario && usu.Contrasenia == contrasenia)
+                {    
+                    if (usu.Activo == false)
+                    {
+                        usuarioEnActividad = false;
+                    }
                    
 
-                    return RedirectToAction("Index", "Home");
                 }
+            }
 
-                ViewBag.Resultado = "No se encontro un usuario con esas credenciales";
-                return View();
+
+            if (usuarioEnActividad)
+            {
+                if (HttpContext.Session.GetString("usuarioLogRol") != "Registrado")
+                {
+                    if (nombreUsuario == null || contrasenia == null)
+                    {
+                        ViewBag.Resultado = "Un campo introducido es invalido";
+                        return View();
+                    }
+
+                    if (nombreUsuario == "" || contrasenia == "")
+                    {
+                        ViewBag.Resultado = "Un campo introducido es invalido";
+                        return View();
+                    }
+
+                    if (HttpContext.Session.GetString("usuarioLogueadoUsername") != null)
+                    {
+                        ViewBag.Resultado = "Error";
+                        return View();
+                    }
+
+
+                    Usuario u = s.LoginUsuario(nombreUsuario, contrasenia);
+
+                    if (u != null)
+                    {
+
+                        ViewBag.Resultado = "Logueado con exito!";
+                        HttpContext.Session.SetString("usuarioLogUsername", u.NombreUsuario);
+                        HttpContext.Session.SetString("usuarioLogRol", u.Rol);
+                        HttpContext.Session.SetString("usuarioLogNombre", u.Nombre);
+                        HttpContext.Session.SetString("usuarioLogApellido", u.Apellido);
+                        HttpContext.Session.SetInt32("usuarioLogId", u.Id);
+
+
+
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    ViewBag.Resultado = "No se encontro un usuario con esas credenciales";
+                    return View();
+                }
+                else
+                {
+                    return View();
+                }
             }
             else
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
+           
           
         }
 
