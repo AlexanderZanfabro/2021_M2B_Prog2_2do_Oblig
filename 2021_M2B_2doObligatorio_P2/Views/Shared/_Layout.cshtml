@@ -33,12 +33,13 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
                             </li>
                         }
-                            @if (Context.Session.GetString("usuarioLogRol") != "Operador" && Context.Session.GetString("usuarioLogUsername") != null) { 
+                        @if (Context.Session.GetString("usuarioLogRol") != "Operador" && Context.Session.GetString("usuarioLogUsername") != null)
+                        {
 
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="MisCompras">Mis compras</a>
-                                </li>
-                            }
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="MisCompras">Mis compras</a>
+                            </li>
+                        }
                         @if (Context.Session.GetString("usuarioLogUsername") != null)
                         {
                             <li class="nav-item">
@@ -66,13 +67,17 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="EliminarUsuarioRegistrado">Eliminar usuario</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="RestablecerUsuario">Restablecer usuario </a>
+                            </li>
                         }
+
+
 
                         @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Operador")
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="ComprasEntreFechas">Ver compras entre dos fechas</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="ComprasEntreFechas">Ver compras entre fechas</a>
                             </li>
                         }
 

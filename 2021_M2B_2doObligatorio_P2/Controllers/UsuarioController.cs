@@ -350,5 +350,41 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
             return View(compras);
         }
+
+
+
+        public IActionResult RestablecerUsuario()
+        {
+
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult RestablecerUsuario(int id)
+        {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+                bool usu = s.RestablecerUsuario(id);
+
+                ViewBag.Mensaje = "Usuario eliminado con exito";
+                // return View();
+                return RedirectToAction("ListaDeUsuarios", "Usuario");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
     }
+
+
+   
 }

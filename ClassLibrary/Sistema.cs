@@ -372,6 +372,8 @@ namespace Dominio
             return LugarCerrado.GetAforoMaximoPermitido();
         }
 
+      
+
         // Deberia haber un enum con % de aforos listados (25, 30, 50, 70, 85, 100) y pedir que los seleccionen de ahí --> ( Por ahora no aplica).
 
         #endregion
@@ -796,12 +798,36 @@ namespace Dominio
             return retorno;
         }
 
-         
+
 
 
         #endregion
 
         //-------------------------------------------------------------------------------------------------------------------------
+
+        #region restituir usuario borrado
+
+        public bool RestablecerUsuario(int id)
+        {
+            bool restablecer = false;
+
+            foreach (Usuario usu in GetSoloUsuariosRegistrados()) if (!restablecer)
+                {
+                    if (usu.Id == id)
+                    {
+                        usu.Activo = true;
+
+                        restablecer = true;
+                    }
+                }
+
+
+            return restablecer;
+        }
+
+
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
 
         #endregion
 
