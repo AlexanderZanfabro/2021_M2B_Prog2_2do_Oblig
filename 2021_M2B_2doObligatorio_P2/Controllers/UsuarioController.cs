@@ -266,7 +266,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
 
-               ViewBag.ListComp = "";
+              // ViewBag.ListComp = "";
 
                 return View();
 
@@ -280,18 +280,25 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
         [HttpPost]
 
-        public IActionResult ComprasEntreFechas(string f1, string f2 , string f3)
+        public IActionResult ComprasEntreFechas(DateTime f1, DateTime f2 , string f3)
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
-               DateTime fecha1 = DateTime.Parse(f1);
-               DateTime fecha2 = DateTime.Parse(f2);
+              // DateTime fecha1 = DateTime.Parse(f1);
+              // DateTime fecha2 = DateTime.Parse(f2);
 
 
-                List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(fecha1, fecha2);
+                List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(f1, f2);
 
-                ViewBag.ListComp = comprasEntreFechas;
-                return View();
+                if (comprasEntreFechas != null)
+                {
+                    return View(comprasEntreFechas);
+                }
+                else
+                {
+                    ViewBag.Msg = "No hay compras entre las fechas elegidas.";
+                    return View();
+                }
             }
             else
             {

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8sF+me1I1EzFXc1o60HkBEY7BRSQMW/OjWpoJxdMXM9nvPiUnQEIGguyKOAhBPaxagRLnmCeViVaE09HAXnl1A==",
+  "dgSpecHash": "EXHXf7qqJk+qN7aRG2UpzE6m1XoXWFPUMHzmkn0ebQMwe6ZH3oKURWgv7Uz6XtDkey0cMl+sKoH0PeQtuVK+1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Federico\\Source\\Repos\\AlexanderZanfabro\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
+  ],
   "logs": []
 }
