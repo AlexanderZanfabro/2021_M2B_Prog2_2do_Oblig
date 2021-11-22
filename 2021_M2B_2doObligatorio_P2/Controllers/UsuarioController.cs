@@ -292,7 +292,17 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                 List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(f1, f2);
 
                // ViewBag.ListComp = comprasEntreFechas;
-                return View(comprasEntreFechas);
+
+                if(comprasEntreFechas != null)
+                {
+                    return View(comprasEntreFechas);
+                }
+                else
+                {
+                    ViewBag.Msg = "No hay compras entre las fechas elegidas.";
+                    return View();
+                }
+               
             }
             else
             {
