@@ -32,11 +32,13 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
                             </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="MisCompras">Mis compras</a>
-                            </li>
                         }
+                            @if (Context.Session.GetString("usuarioLogRol") != "Operador" && Context.Session.GetString("usuarioLogUsername") != null) { 
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="MisCompras">Mis compras</a>
+                                </li>
+                            }
                         @if (Context.Session.GetString("usuarioLogUsername") != null)
                         {
                             <li class="nav-item">

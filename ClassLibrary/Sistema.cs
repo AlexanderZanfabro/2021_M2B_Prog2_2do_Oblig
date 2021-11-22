@@ -543,7 +543,7 @@ namespace Dominio
             return cantidadEntradas > 5 ? (valorRetorno * cantidadEntradas) * 0.95 : valorRetorno * cantidadEntradas;
         }
 
-        // Funciones relacionadas a Like
+        //---------------------------------------------------------- Funciones relacionadas a Like ----------------------------------
         public bool HasUserLiked(int idActividad, int idUsuario)
         {
             foreach(Like l in likes)
@@ -760,26 +760,33 @@ namespace Dominio
         {
             List<Compra> retorno = new List<Compra>();
             
-            DateTime F1 = default(DateTime);
-            DateTime F2 = default(DateTime);
+            //DateTime F1 = default(DateTime);
+           // DateTime F2 = default(DateTime);
 
-             F1 = f1;
-             F2 = f2;
+             //F1 = f1;
+             //F2 = f2;
 
-            if (F1 > F2)
+           /* if (F1 > F2)
             {
                 DateTime aux;
                 aux = F1;
                 F1 = F2;
                 F2 = aux;
 
-            }
-           
+            }*/
 
+            if (f1 > f2)
+            {
+                DateTime aux;
+                aux = f1;
+                f1 = f2;
+                f2 = aux;
+
+            }
 
             foreach (Compra c in compras)
             {
-                if(c.FechaYhora > F1 && c.FechaYhora < F2)
+                if(c.FechaYhora > f1 && c.FechaYhora < f2)
                 {
                     retorno.Add(c);
                 }
