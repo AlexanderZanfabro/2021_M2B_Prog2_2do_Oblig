@@ -18,7 +18,7 @@
 <p id="pMensaje">@ViewBag.MensajeEliminacion</p>
 
 
-@*@section Script{
+@section Scripts{
 
        <script>
            document.querySelector("#eliminarUsuario").addEventListener("submit", verificaCampo);
@@ -26,9 +26,9 @@
            function verificaCampo(evento) {
                evento.preventDefault();
 
-               let idUsuario = Number(document.querySelector("#usuarioParaEliminar").value);
+               let idUsuario = document.querySelector("#usuarioParaEliminar").value;
 
-               if (idUsuario != 0) {
+               if (idUsuario != "") {
                    this.submit();
                } else {
                    document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un Id de usuario ";
@@ -40,4 +40,4 @@
        </script>
 
 
-    }*@
+    }

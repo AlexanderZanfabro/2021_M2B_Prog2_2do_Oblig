@@ -2,10 +2,10 @@
 
 <form method="post" id="comprasEntreFechas">
     <label>Ingrese primer fecha</label>
-    <input type="text" name="f1" id="f1">
+    <input type="datetime-local" name="f1" id="f1">
     <br>
     <label>Ingrese segunda fecha</label>
-    <input type="text" name="f2" id="f2">
+    <input type="datetime-local" name="f2" id="f2">
     <br>
 
     <br>
@@ -24,182 +24,254 @@
 
 <h1>Listado</h1>
 
-
+@if (Model != null)
+{
 <table class="table">
     <thead>
         <tr>
             <th>
-               Id
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-               Id Actividad Comprada
+                @Html.DisplayNameFor(model => model.IdActividadComprada)
             </th>
             <th>
-               Cantidad Entradas
+                @Html.DisplayNameFor(model => model.CantidadEntradas)
             </th>
             <th>
-               Id Usuario que Compra
+                @Html.DisplayNameFor(model => model.IdUsuarioQueCompra)
             </th>
             <th>
-               Fecha y Hora
+                @Html.DisplayNameFor(model => model.FechaYhora)
             </th>
             <th>
-               Estado
+                @Html.DisplayNameFor(model => model.Estado)
             </th>
             <th>
-              Precio Final de la Entrada
-            </th>
+                Precio de las Entradas
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in ViewBag.ListComp)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @item.Id
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @item.IdActividadComprada
+                    @Html.DisplayFor(modelItem => item.IdActividadComprada)
                 </td>
                 <td>
-                    @item.CantidadEntradas
+                    @Html.DisplayFor(modelItem => item.CantidadEntradas)
                 </td>
                 <td>
-                    @item.IdUsuarioQueCompra
+                    @Html.DisplayFor(modelItem => item.IdUsuarioQueCompra)
                 </td>
                 <td>
-                    @item.FechaYhora
+                    @Html.DisplayFor(modelItem => item.FechaYhora)
                 </td>
                 <td>
-                    @item.Estado
+                    @Html.DisplayFor(modelItem => item.Estado)
                 </td>
                 <td>
-                    @item.CalcularPrecioFinal()
+                    @item.PrecioFinalEntrada  <!--metodo en desarrollo--> 
                 </td>
                 <td>
-                    @*
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                    @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                       @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                       @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    *@
+
                 </td>
             </tr>
-        }
+         }
     </tbody>
 </table>
+}
 
-@*
-    @using Microsoft.AspNetCore.Http;
-    @model IEnumerable<Dominio.Actividad>
 
-    <h1>Bienvenidos al portal del usuario</h1>
+<!---------------------------------------------------------------------------------------------------------------------->
 
-    <h3>Lista de Actividades</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre Actividad</th>
-                <th>Categoria</th>
-                <th>Fecha y hora del Evento</th>
-                <th>Precio de las entradas</th>
-                <th></th><!--Se necesita, pero no es necesario poner nada-->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in ViewBag.ListadoAct)
-            {
+
+
+@section Scripts{
+
+    <script>
+        document.querySelector("#comprasEntreFechas").addEventListener("submit", verificaCampo);
+
+           function verificaCampo(evento) {
+               evento.preventDefault();
+
+               let fecha1 = document.querySelector("#f1").value;
+               let fecha2 = document.querySelector("#f2").value;
+
+               if (f1 != "" && f2 != "") {
+                   this.submit();
+               } else {
+                   document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un rangos de fechas ";
+               }
+
+           }
+
+
+    </script>}
+
+
+
+
+
+
+
+    <!---------------------------------------------------------------------------------------------------------------------->
+    <!-- abajo esta la tabla original-->
+    @*
+         @model IEnumerable<Dominio.Compra>
+
+        @{
+            ViewData["Title"] = "ComprasEntreFechas";
+        }
+
+        <h1>Listado</h1>
+
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.NombreActividad</td>
-                    <td>@item.Categoria.Nombre</td>
-                    <td>@item.FechaYhoraActividad</td>
-                    <td>@item.CalcularPrecioFinal().ToString("N2")</td>
-                    <td>
-                        @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
-                        {
-                            @Html.ActionLink("Comprar entrada", "ComprarEntradas", new { id = item.Id })
-                        }
-
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdActividadComprada)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CantidadEntradas)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdUsuarioQueCompra)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaYhora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PrecioFinalEntrada)
+                    </th>
+                    <th></th>
                 </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdActividadComprada)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CantidadEntradas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdUsuarioQueCompra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaYhora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrecioFinalEntrada)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    *@
+
+    @*
+
+            @model IEnumerable<Dominio.Compra>
+
+            @{
+                ViewData["Title"] = "ComprasEntreFechas";
             }
-        </tbody>
-    </table>
+
+            <h1>Listado</h1>
 
 
-*@
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                           Id
+                        </th>
+                        <th>
+                           Id Actividad Comprada
+                        </th>
+                        <th>
+                           Cantidad Entradas
+                        </th>
+                        <th>
+                           Id Usuario que Compra
+                        </th>
+                        <th>
+                           Fecha y Hora
+                        </th>
+                        <th>
+                           Estado
+                        </th>
+                        <th>
+                          Precio Final de la Entrada
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ListComp)
+                    {
+                        <tr>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>
+                                @item.IdActividadComprada
+                            </td>
+                            <td>
+                                @item.CantidadEntradas
+                            </td>
+                            <td>
+                                @item.IdUsuarioQueCompra
+                            </td>
+                            <td>
+                                @item.FechaYhora
+                            </td>
+                            <td>
+                                @item.Estado
+                            </td>
+                            <td>
+                                @item.CalcularPrecioFinal()
+                            </td>
+                            <td>
+                                @*
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-<!-- abajo esta la tabla original-->
-@*
-     @model IEnumerable<Dominio.Compra>
-
-    @{
-        ViewData["Title"] = "ComprasEntreFechas";
-    }
-
-    <h1>Listado</h1>
-
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdActividadComprada)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CantidadEntradas)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdUsuarioQueCompra)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FechaYhora)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Estado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PrecioFinalEntrada)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdActividadComprada)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CantidadEntradas)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdUsuarioQueCompra)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaYhora)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Estado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PrecioFinalEntrada)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-
-*@
+    *@

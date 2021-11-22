@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
         "projectName": "2021_M2B_2doObligatorio_P2",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj"
+              "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Respaldo_2do_Obig_P2_2021\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
