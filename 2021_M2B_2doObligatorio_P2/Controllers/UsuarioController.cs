@@ -236,6 +236,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             {
                 List<Usuario> usuarios = s.GetSoloUsuariosRegistrados();
                 usuarios.Sort();
+
                 return View(usuarios);
             }
             else
@@ -276,8 +277,8 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             {
               bool usu =  s.EliminarUsuario(id);
 
-                ViewBag.MensajeEliminacion = "Usuario eliminado con exito";
-                // return View();
+                 // ViewBag.MensajeEliminacion = "Usuario eliminado con exito";
+                 //return View();
                 return RedirectToAction("ListaDeUsuarios", "Usuario");
             }
             else
@@ -316,7 +317,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
                 List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(f1, f2);
 
-                if (comprasEntreFechas.Count != 0)
+                if (comprasEntreFechas.Count != 0) // con la List.Count != 0 --> le digo que se muestre si la lista no es vacía
                 {
                     return View(comprasEntreFechas);
                 }
@@ -373,7 +374,8 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             {
                 bool usu = s.RestablecerUsuario(id);
 
-                ViewBag.Mensaje = "Usuario restablecido con exito";
+                //TempData["nuevoMensaje"] = "Exito";
+               // ViewBag.Mensaje = "Usuario restablecido con exito";
                 // return View();
                 return RedirectToAction("ListaDeUsuarios", "Usuario");
             }
