@@ -316,7 +316,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
 
                 List<Compra> comprasEntreFechas = s.GetComprasEntreFechas(f1, f2);
 
-                if (comprasEntreFechas != null)
+                if (comprasEntreFechas.Count != 0)
                 {
                     return View(comprasEntreFechas);
                 }
