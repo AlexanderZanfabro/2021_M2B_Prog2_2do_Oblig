@@ -851,11 +851,11 @@ namespace Dominio
             Categoria c3 = AltaCategoria("Cine", "Proyección audiovisual de tipo comercial ó cultural");
             Categoria c4 = AltaCategoria("Concierto", "Representaciones musicales realizadas por una persona (solista) ó un conjunto de varias personas (banda ó grupo)");
 
-            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4);
+            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-12-20"), l1, Actividad.EdadMinimaPermitida.C18, c4);
             Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), l3, Actividad.EdadMinimaPermitida.C13, c3);
-            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), l5, Actividad.EdadMinimaPermitida.P, c4);
+            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-12-28"), l5, Actividad.EdadMinimaPermitida.P, c4);
             Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), l1, Actividad.EdadMinimaPermitida.C16, c2);
-            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4);
+            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-02-21"), l1, Actividad.EdadMinimaPermitida.C18, c4);
 
             Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), l2, Actividad.EdadMinimaPermitida.C18, c4);
             Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), l2, Actividad.EdadMinimaPermitida.C13, c2);
@@ -871,8 +871,16 @@ namespace Dominio
 
             u1.Rol ="Operador";
             u2.Rol ="Operador";
-          
-            
+
+
+            Compra e1 = AltaCompra(1, 4, 3, DateTime.Parse("2021-08-15"), "Activa", 1400);
+            Compra e2 = AltaCompra(1, 2, 4, DateTime.Parse("2021-08-20"), "Activa", 700);
+            Compra e3 = AltaCompra(1, 3, 3, DateTime.Parse("2021-08-10"), "Activa", 1050);
+            Compra e4 = AltaCompra(9, 4, 5, DateTime.Parse("2021-11-15"), "Activa", 1400);
+            Compra e5 = AltaCompra(5, 4, 3, DateTime.Parse("2021-11-04"), "Activa", 1400);
+
+
+
 
 
         }

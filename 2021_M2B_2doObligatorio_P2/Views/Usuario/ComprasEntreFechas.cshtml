@@ -16,7 +16,6 @@
 
 <p id="pMensaje">@ViewBag.Msg</p>
 
-
 @model IEnumerable<Dominio.Compra>
 
 @{
@@ -27,6 +26,8 @@
 
 @if (Model != null)
 {
+
+
     <table class="table">
         <thead>
             <tr>
@@ -34,7 +35,7 @@
                     Id   @* @Html.DisplayNameFor(model => model.Id)*@
                 </th>
                 <th>
-                     Actividad Comprada  @* @Html.DisplayNameFor(model => model.ActividadComprada)*@
+                    Actividad Comprada  @* @Html.DisplayNameFor(model => model.ActividadComprada)*@
                 </th>
                 <th>
                     Cantidad de Entradas

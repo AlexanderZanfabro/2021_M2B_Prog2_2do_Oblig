@@ -373,7 +373,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             {
                 bool usu = s.RestablecerUsuario(id);
 
-                ViewBag.Mensaje = "Usuario eliminado con exito";
+                ViewBag.Mensaje = "Usuario restablecido con exito";
                 // return View();
                 return RedirectToAction("ListaDeUsuarios", "Usuario");
             }
