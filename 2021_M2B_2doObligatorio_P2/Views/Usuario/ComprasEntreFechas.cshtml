@@ -3,10 +3,10 @@
 
 <form method="post" id="comprasEntreFechas">
     <label>Ingrese primer fecha</label>
-    <input type="datetime-local" name="f1" id="f1" required> <!--required para que no quede el campo vacío ?-->
+    <input type="datetime-local" name="f1" id="f1" > <!--required para que no quede el campo vacío ?-->
     <br>
     <label>Ingrese segunda fecha</label>
-    <input type="datetime-local" name="f2" id="f2" required>
+    <input type="datetime-local" name="f2" id="f2" >
     <br>
 
     <br>
@@ -94,10 +94,9 @@
 
 
 <!--------------------------------------------------- Util si se ingresan campos de texto ------------------------------->
-@*
 
 
-    @section Scripts{
+    @{
 
         <script>
             document.querySelector("#comprasEntreFechas").addEventListener("submit", verificaCampo);
@@ -108,7 +107,7 @@
                 let fecha1 = document.querySelector("#f1").value;
                 let fecha2 = document.querySelector("#f2").value;
 
-                if (f1 != "" && f2 != "") {
+                if (fecha1 != "" && fecha2 != "") {
                     this.submit();
                 } else {
                     document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un rangos de fechas ";
@@ -121,7 +120,7 @@
     }
 
 
-*@
+
 
 
 
