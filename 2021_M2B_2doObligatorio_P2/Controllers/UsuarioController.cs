@@ -275,11 +275,14 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
-              bool usu =  s.EliminarUsuario(id);
-
-                 // ViewBag.MensajeEliminacion = "Usuario eliminado con exito";
-                 //return View();
-                return RedirectToAction("ListaDeUsuarios", "Usuario");
+                bool usu = s.EliminarUsuario(id);
+                if (usu)
+                    return RedirectToAction("ListaDeUsuarios", "Usuario");
+                else
+                {
+                    ViewBag.MensajeEliminacion = "No existe un usuario con ese identificador!";
+                    return View();
+                }
             }
             else
             {
@@ -287,7 +290,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             }
         }
 
-      
+
         public IActionResult ComprasEntreFechas()
         {
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
@@ -373,17 +376,20 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
                 bool usu = s.RestablecerUsuario(id);
-
-                //TempData["nuevoMensaje"] = "Exito";
-               // ViewBag.Mensaje = "Usuario restablecido con exito";
-                // return View();
-                return RedirectToAction("ListaDeUsuarios", "Usuario");
+                if (usu)
+                    return RedirectToAction("ListaDeUsuarios", "Usuario");
+                else
+                {
+                    ViewBag.Mensaje = "No existe un usuario con ese identificador!";
+                    return View();
+                }
             }
             else
             {
                 return RedirectToAction("Index", "Home");
             }
         }
+
         public IActionResult Reembolso(int id)
         {
             int? userId = HttpContext.Session.GetInt32("usuarioLogId");
