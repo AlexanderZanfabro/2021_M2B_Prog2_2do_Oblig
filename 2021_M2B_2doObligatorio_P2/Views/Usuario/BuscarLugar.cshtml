@@ -1,0 +1,80 @@
+﻿
+
+<h1>Buscar Eventos en el Lugar...</h1>
+
+<form method="post" id="buscarLugar">
+    <label>Nombre del Lugar:</label>
+    <input type="text" name="nomLugar" id="nom">
+    <br>
+
+
+
+    <input type="submit" value="Buscar">
+</form>
+
+<p id="pMensaje">@ViewBag.Msg</p>
+<br>
+<br>
+
+
+
+@model IEnumerable<Dominio.Actividad>
+
+@{
+    ViewData["Title"] = "BuscarLugar";
+}
+
+
+@if(Model != null){
+
+<h1>Actividades en el sitio</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreActividad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaYhoraActividad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EdadMinima)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreActividad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaYhoraActividad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EdadMinima)
+                </td>
+                <td>
+                    @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                       @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                       @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+}
+
+

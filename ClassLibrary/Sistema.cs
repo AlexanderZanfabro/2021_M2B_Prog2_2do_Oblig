@@ -795,6 +795,34 @@ namespace Dominio
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
 
+
+        public List<Actividad> GetActividadesEnLugar(string nombreLugar)
+        {
+
+            List<Actividad> retorno = new List<Actividad>();
+
+
+
+            foreach (Actividad a in actividades)
+            {
+
+                if (a.Lugar.Nombre.Equals(nombreLugar))
+                {
+
+                    retorno.Add(a);
+
+                }
+
+            }
+
+
+
+            return retorno;
+        }
+
+
+        //--------------------------------------------------------------------------------------------------------------------------
+
         #endregion
 
 

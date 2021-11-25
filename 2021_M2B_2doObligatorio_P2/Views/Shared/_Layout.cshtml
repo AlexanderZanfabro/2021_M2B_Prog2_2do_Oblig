@@ -81,6 +81,18 @@
                             </li>
                         }
 
+
+                        @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Operador")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="BuscarLugar">Actividades en un Lugar</a>
+                            </li>
+                        }
+
+
+
+
+
                     </ul>
                 </div>
             </div>

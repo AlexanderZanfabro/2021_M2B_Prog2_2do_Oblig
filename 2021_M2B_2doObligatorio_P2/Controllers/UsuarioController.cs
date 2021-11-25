@@ -424,8 +424,54 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             }
             return RedirectToAction("Index", "Usuario");
         }
+
+
+        public IActionResult BuscarLugar()
+        {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
+
+        }
+
+
+        [HttpPost]
+
+        public IActionResult BuscarLugar(string nomLugar)
+        {
+            if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
+            {
+                List<Actividad> actividadesEnLugar = s.GetActividadesEnLugar(nomLugar);
+
+
+
+                return View(actividadesEnLugar);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
+
+        }
+
+
+
+
+
+
+
     }
 
 
-   
+
 }
