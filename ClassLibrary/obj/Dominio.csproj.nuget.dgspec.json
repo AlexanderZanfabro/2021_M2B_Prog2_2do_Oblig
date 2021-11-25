@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {}
+    "C:\\Users\\elmat\\Desktop\\Ultimo\\2021_M2B_Prog2_2do_Oblig-master\\ClassLibrary\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
+    "C:\\Users\\elmat\\Desktop\\Ultimo\\2021_M2B_Prog2_2do_Oblig-master\\ClassLibrary\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\elmat\\Desktop\\Ultimo\\2021_M2B_Prog2_2do_Oblig-master\\ClassLibrary\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\obj\\",
+        "projectPath": "C:\\Users\\elmat\\Desktop\\Ultimo\\2021_M2B_Prog2_2do_Oblig-master\\ClassLibrary\\Dominio.csproj",
+        "packagesPath": "C:\\Users\\elmat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elmat\\Desktop\\Ultimo\\2021_M2B_Prog2_2do_Oblig-master\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\elmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

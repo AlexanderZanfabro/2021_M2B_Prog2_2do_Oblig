@@ -15,12 +15,12 @@ namespace Dominio
 
         public static double PrecioBaseActividad = 350;
 
+        public int ContadorLikes;
+
         public Categoria Categoria { get; set; }
-        public int ContadorMeGusta { get; set; }
+        public string Nombre { get; set; }
 
-
-
-        public Actividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
+        public Actividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int ContadorLikes)
         {
             Id = ultimoId1;
             ultimoId1++;
@@ -30,7 +30,7 @@ namespace Dominio
             EdadMinima = edadMinima;
 
             Categoria = categoria;
-            ContadorMeGusta = contadorMeGusta;
+            this.ContadorLikes = ContadorLikes;
         }
 
 
@@ -72,7 +72,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"Id {Id} NombreActividad: {NombreActividad} \n FechaYhoraActividad: {FechaYhoraActividad}  Lugar: {Lugar} EdadMinima: {EdadMinima} PrecioBaseActividad: {PrecioBaseActividad} \n Categoria: {Categoria} ContadorMeGusta: {ContadorMeGusta}";
+            return $"Id {Id} NombreActividad: {NombreActividad} \n FechaYhoraActividad: {FechaYhoraActividad}  Lugar: {Lugar} EdadMinima: {EdadMinima} PrecioBaseActividad: {PrecioBaseActividad} \n Categoria: {Categoria}\nLikes {ContadorLikes}";
 
         }
 

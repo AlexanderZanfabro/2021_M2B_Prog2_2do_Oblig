@@ -73,6 +73,7 @@ namespace Dominio
         public List<Lugar> GetLugares() { return lugares; }
 
         public List<Usuario> GetUsuarios() { return usuarios; }
+        
 
         #endregion
 
@@ -83,7 +84,7 @@ namespace Dominio
 
         #region Altas del Sistema
 
-        public Actividad AltaActividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorMeGusta)
+        public Actividad AltaActividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int contadorLikes)
         {
             Actividad nueva = null;
 
@@ -102,7 +103,7 @@ namespace Dominio
 
             if (!auxAbierto)
             {
-                nueva = new Actividad(nombreActividad, fechaYhoraActividad, lugar, edadMinima, categoria, contadorMeGusta);
+                nueva = new Actividad(nombreActividad, fechaYhoraActividad, lugar, edadMinima, categoria, contadorLikes);
                 actividades.Add(nueva);
             }
 
@@ -143,7 +144,17 @@ namespace Dominio
             {
                 if (u.Id == idUsuarioQueCompra)
                 {
-                    nueva = new Compra(idActividadComprada, cantidadEntradas, idUsuarioQueCompra, fechaYhora, estado, precioFinalEntrada);
+                    Actividad a = null;
+                    foreach(Actividad _a in actividades)
+                    {
+                        if (_a.Id == idActividadComprada)
+                            a = _a;
+                    }
+
+                    if (a == null)
+                        return nueva;
+
+                    nueva = new Compra(a, cantidadEntradas, idUsuarioQueCompra, fechaYhora, estado, Math.Round(precioFinalEntrada, 2));
                     compras.Add(nueva);
                 }
 
@@ -153,7 +164,6 @@ namespace Dominio
 
             return nueva;
         }
-
 
 
         //--------------------------------------------------------------------------------------------------------------------------
@@ -274,8 +284,6 @@ namespace Dominio
             if (nombre != null && apellido != null && email != null && fechaNacimiento < DateTime.Now && nombreUsuario != null && contrasenia != null && CheckEmail(email) && CheckContrasenia( contrasenia))
             {
 
-              
-
                 bool aux = false;
 
                 foreach (Usuario u in usuarios)
@@ -299,10 +307,7 @@ namespace Dominio
             return nuevo;
         }
 
-       
-
-
-        #endregion
+         #endregion
 
 
 
@@ -333,6 +338,8 @@ namespace Dominio
             return LugarCerrado.GetAforoMaximoPermitido();
         }
 
+      
+
         // Deberia haber un enum con % de aforos listados (25, 30, 50, 70, 85, 100) y pedir que los seleccionen de ahí --> ( Por ahora no aplica).
 
         #endregion
@@ -360,6 +367,28 @@ namespace Dominio
 
 
         #endregion
+        
+        //#region List lugares con Actividades
+        //public List<Actividad> GetLugaresConActividades()
+        //{
+        //    List<Actividad> retorno = new List<Actividad>();
+
+
+        //    foreach (Actividad ac in actividades)
+        //    {
+        //        if (ac.EdadMinima == Actividad.EdadMinimaPermitida.P)
+        //        {
+
+        //            retorno.Add(ac);
+        //        }
+        //    }
+
+
+        //    return retorno;
+        //}
+
+
+        //#endregion
 
         //-------------------------------------------------Cambiar precio de butacas-----------------------------------------------
 
@@ -402,6 +431,35 @@ namespace Dominio
             foreach (Actividad a in GetActividades())
             {
                 if (a.Categoria.Id == selectedCategoryId)
+                {
+                    if (dateBusqueda1 < DateTime.Now && dateBusqueda2 > DateTime.Now)
+                    {
+                        found.Add(a);
+                    }
+                }
+            }
+
+            return found;
+        }
+
+        #endregion
+        
+        #region Actividad entre dos fechas con STRING
+        public List<Actividad> GetActividadesEnRango2(string categoria, DateTime dateBusqueda1, DateTime dateBusqueda2)
+        {
+            List<Actividad> found = new List<Actividad>();
+
+            if (dateBusqueda2 > dateBusqueda1)
+            {
+                DateTime tempVariable = dateBusqueda2;
+                dateBusqueda2 = dateBusqueda1;
+                dateBusqueda1 = tempVariable;
+            }
+
+
+            foreach (Actividad a in GetActividades())
+            {
+                if (a.Categoria.Nombre == categoria)
                 {
                     if (dateBusqueda1 < DateTime.Now && dateBusqueda2 > DateTime.Now)
                     {
@@ -503,8 +561,6 @@ namespace Dominio
 
             return cantidadEntradas > 5 ? (valorRetorno * cantidadEntradas) * 0.95 : valorRetorno * cantidadEntradas;
         }
-
-       
 
         //---------------------------------------LOGIN----------------------------------------------------------------------------
 
@@ -655,6 +711,128 @@ namespace Dominio
 
         //--------------------------------------------------------------------------------------------------------------------------
 
+        #region SoloUsuariosRegistrados
+
+        public List<Usuario> GetSoloUsuariosRegistrados()
+        {
+            List < Usuario > retorno = new List<Usuario>();
+
+            foreach(Usuario u in usuarios)
+            {
+                if (u.Rol.Equals("Registrado"))
+                {
+                    retorno.Add(u);
+                }
+            }
+
+
+            return retorno;
+
+        }
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------------------------------
+
+        #region Eliminar usuario
+
+
+        public bool EliminarUsuario(int id)
+        {
+            bool eliminado = false;
+         
+            foreach (Usuario usu in GetSoloUsuariosRegistrados()) if (!eliminado)
+                {
+                if (usu.Id == id ) 
+                {
+                        usu.Activo = false;
+
+                        eliminado = true;
+                }
+            }
+
+
+            return eliminado;
+        }
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------------------------------
+
+        #region GetComprasEntreFechas
+
+        
+          public List<Compra> GetComprasEntreFechas(DateTime f1, DateTime f2)
+        {
+            List<Compra> retorno = new List<Compra>();
+            
+            //DateTime F1 = default(DateTime);
+           // DateTime F2 = default(DateTime);
+
+             //F1 = f1;
+             //F2 = f2;
+
+           /* if (F1 > F2)
+            {
+                DateTime aux;
+                aux = F1;
+                F1 = F2;
+                F2 = aux;
+
+            }*/
+
+            if (f1 > f2)
+            {
+                DateTime aux;
+                aux = f1;
+                f1 = f2;
+                f2 = aux;
+
+            }
+
+            foreach (Compra c in compras)
+            {
+                if(c.FechaYhora > f1 && c.FechaYhora < f2)
+                {
+                    retorno.Add(c);
+                }
+            }
+
+
+            return retorno;
+        }
+
+
+
+
+        #endregion
+
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        #region restituir usuario borrado
+
+        public bool RestablecerUsuario(int id)
+        {
+            bool restablecer = false;
+
+            foreach (Usuario usu in GetSoloUsuariosRegistrados()) if (!restablecer)
+                {
+                    if (usu.Id == id)
+                    {
+                        usu.Activo = true;
+
+                        restablecer = true;
+                    }
+                }
+
+
+            return restablecer;
+        }
+
+
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
+
         #endregion
 
 
@@ -677,17 +855,17 @@ namespace Dominio
             Categoria c3 = AltaCategoria("Cine", "Proyección audiovisual de tipo comercial ó cultural");
             Categoria c4 = AltaCategoria("Concierto", "Representaciones musicales realizadas por una persona (solista) ó un conjunto de varias personas (banda ó grupo)");
 
-            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
-            Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), l3, Actividad.EdadMinimaPermitida.C13, c3, 200);
-            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-11-28"), l5, Actividad.EdadMinimaPermitida.P, c4, 9000);
-            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), l1, Actividad.EdadMinimaPermitida.C16, c2, 5000);
-            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-08-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a1 = AltaActividad("Concierto de U2", DateTime.Parse("2021-12-20"), l1, Actividad.EdadMinimaPermitida.C18, c4, 532);
+            Actividad a2 = AltaActividad("Estreno de Mulan", DateTime.Parse("2021-10-15"), l3, Actividad.EdadMinimaPermitida.C13, c3, 53);
+            Actividad a3 = AltaActividad("Concierto orquesta municipal", DateTime.Parse("2021-12-28"), l5, Actividad.EdadMinimaPermitida.P, c4, 12);
+            Actividad a4 = AltaActividad("Final metropolitano de Basketball", DateTime.Parse("2022-02-20"), l1, Actividad.EdadMinimaPermitida.C16, c2, 412);
+            Actividad a5 = AltaActividad("Concierto de Coldplay", DateTime.Parse("2022-02-21"), l1, Actividad.EdadMinimaPermitida.C18, c4, 51);
 
-            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), l2, Actividad.EdadMinimaPermitida.C18, c4, 20000);
-            Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), l2, Actividad.EdadMinimaPermitida.C13, c2, 1000);
-            Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), l4, Actividad.EdadMinimaPermitida.P, c1, 9500);
-            Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), l4, Actividad.EdadMinimaPermitida.P, c1, 5000);
-            Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), l2, Actividad.EdadMinimaPermitida.C18, c4, 5000);
+            Actividad a6 = AltaActividad("Concierto de La Vela Puerca", DateTime.Parse("2021-12-10"), l2, Actividad.EdadMinimaPermitida.C18, c4, 576);
+            Actividad a7 = AltaActividad("Final Ciclismo de Pista", DateTime.Parse("2021-10-15"), l2, Actividad.EdadMinimaPermitida.C13, c2, 623);
+            Actividad a8 = AltaActividad("Clasificatorio Murga Joven", DateTime.Parse("2021-11-20"), l4, Actividad.EdadMinimaPermitida.P, c1, 452);
+            Actividad a9 = AltaActividad("Clasificatorio Murga", DateTime.Parse("2021-12-14"), l4, Actividad.EdadMinimaPermitida.P, c1,5643);
+            Actividad a10 = AltaActividad("Concierto de Mana", DateTime.Parse("2021-08-20"), l2, Actividad.EdadMinimaPermitida.C18, c4,52);
 
             Usuario u1 = AltaUsuario("John", "Smith", "john@montevideo.com.uy", DateTime.Parse("1981-01-10"), "john01", "1234@Aaa");
             Usuario u2 = AltaUsuario("Aida", "Aqua", "aAqua@montevideo.com.uy", DateTime.Parse("1978-05-20"), "aida01", "4321@Aaa");
@@ -697,8 +875,16 @@ namespace Dominio
 
             u1.Rol ="Operador";
             u2.Rol ="Operador";
-          
-            
+
+
+            Compra e1 = AltaCompra(1, 4, 3, DateTime.Parse("2021-08-15"), "Activa", 1400);
+            Compra e2 = AltaCompra(1, 2, 4, DateTime.Parse("2021-08-20"), "Activa", 700);
+            Compra e3 = AltaCompra(1, 3, 3, DateTime.Parse("2021-08-10"), "Activa", 1050);
+            Compra e4 = AltaCompra(9, 4, 5, DateTime.Parse("2021-11-15"), "Activa", 1400);
+            Compra e5 = AltaCompra(5, 4, 3, DateTime.Parse("2021-11-04"), "Activa", 1400);
+
+
+
 
 
         }
@@ -708,4 +894,5 @@ namespace Dominio
 
         #endregion
     }
+    //-----------------------------------------------------------------------------------------------------------------------------
 }
