@@ -28,8 +28,13 @@ else
                 <td>@Html.DisplayFor(modelItem => item.FechaYhora)</td>
                 <td>@Html.DisplayFor(modelItem => item.CantidadEntradas)</td>
                 <td>@Html.DisplayFor(modelItem => item.PrecioFinalEntrada)</td>
-                <td></td>
-                <td>Reembolso</td>
+                @if (item.Estado == "Activa" && DateTime.Now < item.ActividadComprada.FechaYhoraActividad.AddDays(-1))
+                {
+            <td>@Html.ActionLink("Reembolsar compra", "Reembolso", new { id = item.Id })</td> }
+                                else
+                                {
+                                    <td>No reembolsable</td>
+                                }
 
             </tr>
 

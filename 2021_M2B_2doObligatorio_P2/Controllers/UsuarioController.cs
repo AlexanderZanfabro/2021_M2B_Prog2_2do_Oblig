@@ -384,7 +384,40 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+        public IActionResult Reembolso(int id)
+        {
+            int? userId = HttpContext.Session.GetInt32("usuarioLogId");
+            if (userId == null)
+                return RedirectToAction("Index", "Home");
 
+            foreach (Compra c in s.GetCompras())
+            {
+                if (c.Id == id && c.IdUsuarioQueCompra == userId)
+                {
+                    if (DateTime.Now < c.ActividadComprada.FechaYhoraActividad.AddDays(-1))
+                    {
+                        c.Estado = "Reembolada";
+                    }
+                }
+            }
+            return RedirectToAction("MisCompras", "Usuario");
+        }
+
+        public IActionResult LikearActividad(int id)
+        {
+            int? userId = HttpContext.Session.GetInt32("usuarioLogId");
+            if (userId == null)
+                return RedirectToAction("Index", "Home");
+
+            foreach (Actividad a in s.GetActividades())
+            {
+                if (a.Id == id)
+                {
+                    a.ContadorLikes++;
+                }
+            }
+            return RedirectToAction("Index", "Usuario");
+        }
     }
 
 

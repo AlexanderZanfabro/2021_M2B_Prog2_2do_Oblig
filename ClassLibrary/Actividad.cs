@@ -15,10 +15,11 @@ namespace Dominio
 
         public static double PrecioBaseActividad = 350;
 
+        public int ContadorLikes;
         public Categoria Categoria { get; set; }
 
 
-        public Actividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria)
+        public Actividad(string nombreActividad, DateTime fechaYhoraActividad, Lugar lugar, EdadMinimaPermitida edadMinima, Categoria categoria, int ContadorLikes)
         {
             Id = ultimoId1;
             ultimoId1++;
@@ -28,6 +29,7 @@ namespace Dominio
             EdadMinima = edadMinima;
 
             Categoria = categoria;
+            this.ContadorLikes = ContadorLikes;
         }
 
 

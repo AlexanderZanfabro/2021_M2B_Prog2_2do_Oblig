@@ -11,22 +11,27 @@
             <th>Categoria</th>
             <th>Fecha y hora del Evento</th>
             <th>Precio de las entradas</th>
+            <th>Cantidad de likes</th>
             <th></th><!--Se necesita, pero no es necesario poner nada-->
         </tr>
     </thead>
     <tbody>
         @foreach (var item in ViewBag.ListadoAct)
         {
-            <tr>
-                <td>@item.NombreActividad</td>
-                <td>@item.Categoria.Nombre</td>
-                <td>@item.FechaYhoraActividad</td>
-                <td>@item.CalcularPrecioFinal().ToString("N2")</td>
-                <td>
-                    @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
-                    {
-                        @Html.ActionLink("Comprar entrada", "ComprarEntradas", new { id = item.Id })
-                    }
+        <tr>
+            <td>@item.NombreActividad</td>
+            <td>@item.Categoria.Nombre</td>
+            <td>@item.FechaYhoraActividad</td>
+            <td>@item.CalcularPrecioFinal().ToString("N2")</td>
+            <td>@item.ContadorLikes</td>
+            <td>
+                @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
+                {
+        <td>
+            @Html.ActionLink("Comprar entrada", "ComprarEntradas", new { id = item.Id })
+            /
+            @Html.ActionLink("Me gusta", "LikearActividad", new { id = item.Id })
+        </td>}
 
                 </td>
             </tr>
