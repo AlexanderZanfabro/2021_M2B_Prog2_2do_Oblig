@@ -1,35 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {}
+    "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {
+    "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
+        "projectUniqueName": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
         "projectName": "2021_M2B_2doObligatorio_P2",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\obj\\",
+        "projectPath": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\2021_M2B_2doObligatorio_P2.csproj",
+        "packagesPath": "C:\\Users\\Federico\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\2021_M2B_2doObligatorio_P2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Federico\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj"
+              "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj"
               }
             }
           }
@@ -53,12 +52,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.17, 3.1.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,29 +60,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
+    "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\obligatorio\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\obj\\",
+        "projectPath": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\Dominio.csproj",
+        "packagesPath": "C:\\Users\\Federico\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Federico\\Desktop\\sunlens\\lll\\2021_M2B_Prog2_2do_Oblig\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Federico\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -121,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -294,7 +294,7 @@ namespace Dominio
 
                 foreach (Usuario u in usuarios)
                 {
-                    if (u.Email == email && u.NombreUsuario == nombreUsuario)
+                    if (u.Email == email || u.NombreUsuario == nombreUsuario)
                     {
                         aux = true;
 
