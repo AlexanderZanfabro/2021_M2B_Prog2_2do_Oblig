@@ -73,7 +73,9 @@ namespace Dominio
 
         public List<Lugar> GetLugares() { return lugares; }
 
-        public List<Usuario> GetUsuarios() { return usuarios; }
+        public List<Usuario> GetUsuarios() {
+            usuarios.Sort();
+            return usuarios; }
         
        
         #endregion
@@ -678,6 +680,7 @@ namespace Dominio
         public List<Usuario> GetSoloUsuariosRegistrados()
         {
             List < Usuario > retorno = new List<Usuario>();
+            retorno.Sort();
 
             foreach(Usuario u in usuarios)
             {
@@ -806,6 +809,7 @@ namespace Dominio
             foreach (Actividad a in actividades)
             {
 
+               
                 if (a.Lugar.Nombre.Equals(nombreLugar))
                 {
 
@@ -860,8 +864,10 @@ namespace Dominio
             Usuario u1 = AltaUsuario("John", "Smith", "john@montevideo.com.uy", DateTime.Parse("1981-01-10"), "john01", "1234@Aaa");
             Usuario u2 = AltaUsuario("Aida", "Aqua", "aAqua@montevideo.com.uy", DateTime.Parse("1978-05-20"), "aida01", "4321@Aaa");
             Usuario u3 = AltaUsuario("Mika", "Verona", "verona@montevide.com.uy", DateTime.Parse("2001-01-05"), "mika01", "111#Agua");
-            Usuario u4 = AltaUsuario("Augusto", "Re", "augusRe@montevideo.com.uy", DateTime.Parse("1955-02-12"), "augusto01", "22@@Zz22");
-            Usuario u5 = AltaUsuario("Anton", "Vivaldi", "vivaldi@montevideo.com.uy", DateTime.Parse("1999-08-11"), "anton01", "4444@JJj");
+            Usuario u4 = AltaUsuario("Contantino", "Re", "constRe@montevideo.com.uy", DateTime.Parse("1956-02-12"), "constant01", "222@@Zz22");
+            Usuario u5 = AltaUsuario("Augusto", "Re", "augusRe@montevideo.com.uy", DateTime.Parse("1955-02-12"), "augusto01", "22@@Zz22");
+            Usuario u6 = AltaUsuario("Ian", "Vivaldi", "vivaldi@montevideo.com.uy", DateTime.Parse("1999-08-11"), "ian01234", "4444@JJj");
+            Usuario u7 = AltaUsuario("Anton", "Vivaldi", "vivaldi2@montevideo.com.uy", DateTime.Parse("1985-08-11"), "anton0123", "4445@JJj");
 
             u1.Rol ="Operador";
             u2.Rol ="Operador";

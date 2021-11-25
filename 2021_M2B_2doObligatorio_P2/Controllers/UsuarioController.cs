@@ -235,7 +235,7 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             if (HttpContext.Session.GetString("usuarioLogRol") == "Operador")
             {
                 List<Usuario> usuarios = s.GetSoloUsuariosRegistrados();
-                usuarios.Sort();
+               // usuarios.Sort();
 
                 return View(usuarios);
             }
@@ -451,9 +451,18 @@ namespace _2021_M2B_2doObligatorio_P2.Controllers
             {
                 List<Actividad> actividadesEnLugar = s.GetActividadesEnLugar(nomLugar);
 
+                if(actividadesEnLugar != null)
+                {
+                    return View(actividadesEnLugar);
+                }
+                else
+                {
 
+                    ViewBag.Msj = "No se encontraron actividades en ese lugar";
+                    return View();
+                }
 
-                return View(actividadesEnLugar);
+                
             }
             else
             {

@@ -25,56 +25,87 @@
 }
 
 
-@if(Model != null){
+@if (Model != null)
+{
 
-<h1>Actividades en el sitio</h1>
+    <h1>Actividades en el sitio</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreActividad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaYhoraActividad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EdadMinima)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreActividad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaYhoraActividad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EdadMinima)
-                </td>
-                <td>
-                    @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                       @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                       @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-
-                </td>
+                <th>
+                   Id de la Actividad
+                </th>
+                <th>
+                   Nombre de la Actividad
+                </th>
+                <th>
+                   Fecha y Hora de la Actividad
+                </th>
+                <th>
+                   Edad Minima Permitida
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreActividad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaYhoraActividad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EdadMinima)
+                    </td>
+                    <td>
+                        @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 
 }
 
+
+
+
+
+@{
+    <script>
+        document.querySelector("#buscarLugar").addEventListener("submit", controlFormulario);
+
+        function controlFormulario(evento) {
+            evento.preventDefault();
+            let nombreLugar = document.querySelector("#nom").value;
+          
+            
+
+
+            if (nombreLugar != "" ) {
+                
+                    this.submit();
+               
+
+            } else {
+                document.querySelector("#pMensaje").innerHTML = "Error. Falta ingresar de datos ";
+            }
+
+        }
+
+
+
+    </script>
+}
 
