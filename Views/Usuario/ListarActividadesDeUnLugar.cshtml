@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Dominio.Lugar>
+
+@{
+    ViewData["Title"] = "ListarActividadesDeUnLugar";
+}
+
+<h1>Actividades Del Lugar</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dimensiones)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ListarActividadesDeUnLugar)
+        {
+            <tr>
+                <td>
+                    @item.Id)
+                </td>
+                <td>
+                    @item.Nombre)
+                </td>
+                <td>
+                    @item.Dimensiones)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@{
+        ViewData["Title"] = "ListarActividadesDeUnLugar";
+    }
+
+    <h1>Actividades Del Lugar</h1>
+
+    @foreach (var Lugar in ViewBag.ListarActividadesDeUnLugar)
+    {
+        <p>@Lugar.nombre</p>
+    }*@

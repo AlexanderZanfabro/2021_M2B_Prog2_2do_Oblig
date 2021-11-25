@@ -1,0 +1,106 @@
+﻿@*Estadísticas:
+    o Dado el nombre de Lugar, listar todas las actividades que allí se realizan.
+    o Dadas dos fechas y una categoría listar todas las actividades que cumplan con el filtro.
+    o Obtener las compras de mayor valor. En caso de empate mostar todas las empatadas.*@
+
+@{
+    ViewData["Title"] = "Estadisticas";
+}
+
+<h1 class="text-center">Actividades del Lugar</h1>
+
+<form method="post" id="consultarLugar">
+    <label>Ingrese el nombre del lugar</label>
+    <input type="text" name="nombreLugar" id="nombreLugar" required>
+    <br>
+    <label>Ingrese primer fecha</label>
+    <input type="datetime-local" name="f11" id="f11" required>
+    <br>
+    <label>Ingrese segunda fecha</label>
+    <input type="datetime-local" name="f22" id="f22" required>
+    <br>
+    <label>Ingrese categoría</label>
+    <input type="text" name="categoriaLugar" id="categoriaLugar" required>
+    <br>
+    <input type="submit" value="Buscar">
+</form>
+
+<p id="pMensaje">@ViewBag.Msg</p>
+@{
+    <script>
+        document.querySelector("#consultarLugar").addEventListener("submit", controlForm);
+
+        function controlForm(evento) {
+            evento.preventDefault();
+            let nombre = document.querySelector("#nombreLugar").value;
+            let fecha1 = document.querySelector("#f11").value;
+            let fecha2 = document.querySelector("#f22").value;
+            let categoriaLugar = document.querySelector("#categoriaLugar").value;
+
+            if (nombre != "" && categoriaLugar != "") {
+                if (fecha1 != "" && fecha2 != "") {
+                    this.submit();
+                }
+                else {
+                    document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un rango de fechas";
+                }
+            }
+            else {
+                document.querySelector("#pMensaje").innerHTML = "Error. Ingresar nombre y categoría de un lugar";
+            }
+
+        }
+    </script>
+
+}
+
+@model IEnumerable<Dominio.Actividad>
+
+@if (Model != null)
+{
+    <h2>Listado</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@*@using Microsoft.AspNetCore.Http;
+
+@model IEnumerable<Dominio.Actividad>
+
+@if (Model != null)
+{
+    <h2>Listado</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.ListActConLugar)
+            {
+                <tr>
+                    <td>@item.NombreActividad</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}*@
+

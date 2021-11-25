@@ -1,0 +1,129 @@
+﻿
+<h1>Registro de compras entre fechas seleccionadas</h1>
+
+<form method="post" id="comprasEntreFechas">
+    <label>Ingrese primer fecha</label>
+    <input type="datetime-local" name="f1" id="f1" > <!--required para que no quede el campo vacío ?-->
+    <br>
+    <label>Ingrese segunda fecha</label>
+    <input type="datetime-local" name="f2" id="f2" >
+    <br>
+
+    <br>
+
+    <input type="submit" value="Buscar">
+</form>
+
+<p id="pMensaje">@ViewBag.Msg</p>
+
+@model IEnumerable<Dominio.Compra>
+
+@{
+    ViewData["Title"] = "ComprasEntreFechas";
+}
+
+
+
+@if (Model != null)
+{
+    <h1>Listado</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id   @* @Html.DisplayNameFor(model => model.Id)*@
+                </th>
+                <th>
+                    Actividad Comprada  @* @Html.DisplayNameFor(model => model.ActividadComprada)*@
+                </th>
+                <th>
+                    Cantidad de Entradas
+                </th>
+                <th>
+                    Id de Usuario que Compra
+                </th>
+                <th>
+                    Fecha y Hora
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Precio de las Entradas
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActividadComprada.NombreActividad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadEntradas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUsuarioQueCompra)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaYhora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        @item.PrecioFinalEntrada
+                    </td>
+                    <td>
+                        @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        *@
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+<!--------------------------------------------------- Util si se ingresan campos de texto ------------------------------->
+
+
+    @{
+
+        <script>
+            document.querySelector("#comprasEntreFechas").addEventListener("submit", verificaCampo);
+
+            function verificaCampo(evento) {
+                evento.preventDefault();
+
+                let fecha1 = document.querySelector("#f1").value;
+                let fecha2 = document.querySelector("#f2").value;
+
+                if (fecha1 != "" && fecha2 != "") {
+                    this.submit();
+                } else {
+                    document.querySelector("#pMensaje").innerHTML = "Error. Debe ingresar un rango de fechas ";
+                }
+
+            }
+
+
+        </script>
+    }
+
+
+
+
+
+
+
+
+<!---------------------------------------------------------------------------------------------------------------------->

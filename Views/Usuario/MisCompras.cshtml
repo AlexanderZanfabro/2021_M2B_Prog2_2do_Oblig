@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Dominio.Compra>
+
+@{
+    ViewData["Title"] = "ListaDeCompras";
+}
+
+@if (Model.Count() == 0)
+{
+    <h3 class="text-center">No hay ninguna compra registrada a su nombre</h3>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de la actividad</th>
+                <th>Fecha y hora de la compra</th>
+                <th>Cantidad de entradas</th>
+                <th>Precio final</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ActividadComprada.NombreActividad)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaYhora)</td>
+                <td>@Html.DisplayFor(modelItem => item.CantidadEntradas)</td>
+                <td>@Html.DisplayFor(modelItem => item.PrecioFinalEntrada)</td>
+
+                @if (item.Estado == "Activa" && DateTime.Now < item.ActividadComprada.FechaYhoraActividad.AddDays(-1))
+                {
+                    <td>@Html.ActionLink("Reembolsar compra", "Reembolso", new {  id=item.Id  })</td>
+                } else
+                    {
+                        <td>No reembolsable</td>
+                    }
+
+            </tr>
+
+            }
+        </tbody>
+    </table>
+}

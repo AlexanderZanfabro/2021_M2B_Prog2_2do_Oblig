@@ -1,0 +1,69 @@
+﻿<h1>Registro de nuevo usuario</h1>
+
+<form method="post" id="registroUsuario">
+    <label>Nombre</label>
+    <input type="text" name="nombre" id="nombre">
+    <br>
+
+    <label>Apellido</label>
+    <input type="text" name="apellido" id="apellido">
+    <br>
+    <label>Email</label>
+    <input type="text" name="email" id="email">
+    <br>
+    <label>Fecha de Nacimiento</label>
+    <input type="text" name="fechaNacimiento" id="fechaNacimiento">
+    <br>
+    <label>Nombre de Usuario</label>
+    <input type="text" name="nombreUsuario" id="nombreUsuario">
+    <br>
+    <label>Contraseña</label>
+    <input type="password" name="contrasenia" id="contrasenia">
+    <br>
+
+    <input type="submit" value="Registrarse">
+</form>
+
+<p id="pMensaje">@ViewBag.Msg</p><br><br>
+
+<p>Nombre y Apellido deben de tener un largo mínimo de 2 caracteres</p>
+<p>La contraseña deben de tener un largo mínimo de 2 caracteres</p>
+<p> y contendra al menos una mayúscula, una minúscula y un dígito.</p>
+
+
+
+@{
+    <script>
+        document.querySelector("#registroUsuario").addEventListener("submit", controlForm);
+
+        function controlForm(evento) {
+            evento.preventDefault();
+            let nombre = document.querySelector("#nombre").value;
+            let apellido = document.querySelector("#apellido").value;
+            let contrasenia = document.querySelector("#contrasenia").value;
+            let email = document.querySelector("#email").value;
+            let fechaNacimiento = document.querySelector("#fechaNacimiento").value;
+            let nombreUsuario = document.querySelector("#nombreUsuario").value;
+
+
+
+            if (nombre != "" && apellido != "" && email != "" && fechaNacimiento != "" && nombreUsuario != "" && contrasenia != "") {
+                if (nombre.length >= 2 && apellido.length >= 2 && contrasenia.length >= 6) {
+
+                    this.submit();
+                } else {
+                    document.querySelector("#pMensaje").innerHTML = "Error. Es requerido un largo mínimo en el ingreso de datos ";
+                }
+
+
+            } else {
+                document.querySelector("#pMensaje").innerHTML = "Error. Falta ingresar de datos ";
+            }
+
+        }
+
+
+
+    </script>
+}
+

@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Portal de Actividades Culturales y Recreativas</h1>
+    @if (Context.Session.GetString("usuarioLogUsername") == null && Context.Session.GetString("usuarioLogRol") != "Operador")
+    {
+        <p>Para adquirir entradas debe registrarse como usuario</p>
+    }
+
+
+    @if (Context.Session.GetString("usuarioLogUsername") != null)
+    {
+        <p>Bienvenido/a @Context.Session.GetString("usuarioLogNombre")</p><!-- del ejemplo integrador-->
+    }
+
+</div>
+
+<div>
+    <a href=""></a> <!-- foto de portada-->
+</div>

@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Dominio.Actividad>
+
+<h1>Bienvenidos al portal del usuario</h1>
+
+<h3>Lista de Actividades</h3>
+<table class="table-borderless">
+    <thead>
+        <tr>
+            <th>Nombre Actividad</th>
+            <th>Categoria</th>
+            <th>Fecha y hora del Evento</th>
+            <th>Precio de las entradas</th>
+            <th>Cantidad de likes</th>
+            <th></th><!--Se necesita, pero no es necesario poner nada-->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ListadoAct)
+        {
+            <tr>
+                <td>@item.NombreActividad</td>
+                <td>@item.Categoria.Nombre</td>
+                <td>@item.FechaYhoraActividad</td>
+                <td>@item.CalcularPrecioFinal().ToString("N2")</td>
+                <td>@item.ContadorLikes</td>
+                <td>
+                    @if (Context.Session.GetString("usuarioLogUsername") != null && Context.Session.GetString("usuarioLogRol") == "Registrado")
+                    {
+                         <td>
+                    @Html.ActionLink("Comprar entrada", "ComprarEntradas", new { id = item.Id })
+                                        @Html.ActionLink("Me gusta", "LikearActividad", new { id = item.Id })
+                         </td>
+                    }
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>-----------------------------------------------------------------------------------------</p>
+<!--<td>@*@Html.DisplayNameFor(model => item.NombreActividad)*@</td>-->
+<!--<td>@*@Html.DisplayNameFor(model => item.Categoria.Nombre)*@</td>-->
